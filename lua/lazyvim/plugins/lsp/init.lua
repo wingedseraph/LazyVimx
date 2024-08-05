@@ -79,6 +79,21 @@ return {
               Lua = {
                 workspace = {
                   checkThirdParty = false,
+                  library = {
+                    [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                    [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
+                    [vim.fn.stdpath("data") .. "/lazy/lazy.nvim/lua/lazy"] = true,
+                  },
+                  ignoreDir = {
+                    "lua/tokyonight",
+                    "lua/mellow",
+                    "lua/catppuccin",
+                    "lua/yugem",
+                    "lua/vscode",
+                    "lua/vague",
+                  },
+                  maxPreload = 100000,
+                  preloadFileSize = 10000,
                 },
                 codeLens = {
                   enable = true,
