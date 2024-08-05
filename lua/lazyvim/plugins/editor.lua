@@ -29,20 +29,145 @@ return {
   -- location.
   {
     "folke/flash.nvim",
-    event = "VeryLazy",
     vscode = true,
-    ---@type Flash.Config
-    opts = {},
-    -- stylua: ignore
+    enabled = true,
+    event = "VeryLazy",
+    opts = {
+      label = {
+        style = "overlay", ---@type "eol" | "overlay" | "right_align" | "inline"
+        rainbow = { enabled = true, shade = 9 },
+      },
+      modes = {
+        search = {
+          enabled = false,
+        },
+        char = {
+          multi_line = false,
+          jump_labels = true,
+        },
+      },
+    },
+      -- stylua: ignore
+      keys = {
+         { "s", mode = { "n", "o", "x" }, function() require("flash").jump() end,              desc = "Flash" },
+         { "S", mode = { "n", "o", "x" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
+         { "r", mode = "o",               function() require("flash").remote() end,            desc = "Remote Flash" },
+         { "R", mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+         -- { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+      },
+  },
+  {
+    "samjwill/nvim-unception",
+    event = "VeryLazy",
+  },
+  {
+    "SR-Mystar/yazi.nvim",
+    cmd = "Yazi",
+    opts = {
+      continue_use_it = true,
+      size = {
+        width = 0.9, -- maximally available columns
+        height = 0.8, -- maximally available lines
+      },
+      border = "rounded",
+    },
     keys = {
-      { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
-      { "S", mode = { "n", "o", "x" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
-      { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
-      { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
-      { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+      {
+        "<M-n>",
+        function()
+          vim.cmd("Yazi")
+        end,
+        desc = "Open the file manager",
+      },
     },
   },
+  {
+    "folke/zen-mode.nvim",
+    cmd = "ZenMode",
+    opts = {
+      on_open = function(win)
+        vim.cmd.hi("clear ZenBg")
+        local view = require("zen-mode.view")
+        local layout = view.layout(view.opts)
+        vim.api.nvim_win_set_config(win, {
+          width = layout.width,
+          height = layout.height - 1,
+        })
+        vim.api.nvim_win_set_config(view.bg_win, {
+          width = vim.o.columns,
+          height = view.height() - 1,
+          row = 1,
+          col = layout.col,
+          relative = "editor",
+        })
+      end,
+      window = {
+        width = 130, -- width of the Zen window
+        height = 1, -- height of the Zen window
+      },
+      plugins = {
+        options = {
+          enabled = true,
+          ruler = false, -- disables the ruler text in the cmd line area
+          showcmd = true, -- disables the command in the last line of the screen
+          -- you may turn on/off statusline in zen mode by setting 'laststatus'
+          -- statusline will be shown only if 'laststatus' == 3
+          laststatus = 3, -- turn off the statusline in zen mode
+        },
+        twilight = { enabled = false }, -- enable to start Twilight when zen mode opens
+        tmux = { enabled = true }, -- disables the tmux statusline
+        wezterm = {
+          enabled = false,
+          -- can be either an absolute font size or the number of incremental steps
+          font = "+4", -- (10% increase per step)
+        },
+      },
+      -- callback where you can add custom code when the Zen window opens
+    },
+  },
+  { "IndianBoy42/vim-visual-multi", event = "VeryLazy" },
+  {
+    "backdround/global-note.nvim",
+    event = "VeryLazy",
+    config = function()
+      local global_note = require("global-note")
+      local get_project_name = function()
+        ---@diagnostic disable-next-line: undefined-field
+        local project_directory, err = vim.uv.cwd()
+        if project_directory == nil then
+          vim.notify(err, vim.log.levels.WARN)
+          return nil
+        end
 
+        local project_name = vim.fs.basename(project_directory)
+        if project_name == nil then
+          vim.notify("Unable to get the project name", vim.log.levels.WARN)
+          return nil
+        end
+
+        return project_name
+      end
+      global_note.setup({
+        additional_presets = {
+          project_local = {
+            command_name = "ProjectNote",
+
+            filename = function()
+              return get_project_name() .. ".md"
+            end,
+
+            title = "Project note",
+          },
+        },
+      })
+
+      vim.keymap.set("n", "<leader>n", function()
+        global_note.toggle_note("project_local")
+      end, {
+        desc = "todo, Toggle project note",
+      })
+    end,
+  },
   -- which-key helps you remember key bindings by showing a popup
   -- with the active keybindings of the command you started typing.
 
