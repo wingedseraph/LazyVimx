@@ -218,7 +218,7 @@ return {
         -- context_char = "",
       })
       vim.cmd.hi("clear IndentBlanklineContextStart")
-      vim.cmd.hi("link IndentBlanklineContextStart illuminatedCurWord")
+      vim.cmd.hi("link IndentBlanklineContextStart BufferLineHint")
     end,
     version = "2.20.7",
   },
