@@ -69,7 +69,7 @@ opt.fillchars = {
   diff = "╱",
   eob = " ",
 }
-opt.foldlevel = 99
+opt.foldlevel = 1
 opt.formatexpr = "v:lua.require'lazyvim.util'.format.formatexpr()"
 opt.formatoptions = "jcroqlnt" -- tcqj
 opt.grepformat = "%f:%l:%c:%m"
