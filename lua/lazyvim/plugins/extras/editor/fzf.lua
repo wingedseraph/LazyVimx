@@ -209,11 +209,7 @@ return {
         "<cmd>FzfLua buffers sort_mru=true sort_lastused=true<cr>",
         desc = "Switch Buffer",
       },
-      vim.api.nvim_set_keymap("n", "<leader>fz", "<cmd>FzfLua builtin<cr>", { noremap = true, silent = true })({
-        "<leader>/",
-        LazyVim.pick("live_grep"),
-        desc = "Grep (Root Dir)",
-      }),
+      { "<leader>fz", "<cmd>FzfLua builtin<cr>", desc = "builtin" },
       { "<leader>:", "<cmd>FzfLua command_history<cr>", desc = "Command History" },
       { "<leader><space>", LazyVim.pick("files"), desc = "Find Files (Root Dir)" },
       -- find
