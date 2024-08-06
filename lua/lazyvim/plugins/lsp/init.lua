@@ -148,7 +148,7 @@ return {
     ---@param opts PluginLspOpts
     config = function(_, opts)
       -- setup autoformat
-      LazyVimx.format.register(LazyVimx.lsp.formatter())
+      -- LazyVimx.format.register(LazyVimx.lsp.formatter())
 
       -- setup keymaps
       LazyVimx.lsp.on_attach(function(client, buffer)
