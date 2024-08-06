@@ -7,7 +7,7 @@ return {
     event = "VeryLazy",
     opts = { style = "moon" },
   },
-
+  { "Mofiqul/vscode.nvim", lazy = true },
   -- catppuccin
   {
     "catppuccin/nvim",
