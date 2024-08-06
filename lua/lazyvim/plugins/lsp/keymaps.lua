@@ -32,10 +32,10 @@ function M.get()
         desc = "Next Reference", cond = function() return LazyVim.lsp.words.enabled end },
       { "[[", function() LazyVim.lsp.words.jump(-vim.v.count1) end, has = "documentHighlight",
         desc = "Prev Reference", cond = function() return LazyVim.lsp.words.enabled end },
-      { "<a-n>", function() LazyVim.lsp.words.jump(vim.v.count1, true) end, has = "documentHighlight",
-        desc = "Next Reference", cond = function() return LazyVim.lsp.words.enabled end },
-      { "<a-p>", function() LazyVim.lsp.words.jump(-vim.v.count1, true) end, has = "documentHighlight",
-        desc = "Prev Reference", cond = function() return LazyVim.lsp.words.enabled end },
+      -- { "<a-n>", function() LazyVim.lsp.words.jump(vim.v.count1, true) end, has = "documentHighlight",
+      --   desc = "Next Reference", cond = function() return LazyVim.lsp.words.enabled end },
+      -- { "<a-p>", function() LazyVim.lsp.words.jump(-vim.v.count1, true) end, has = "documentHighlight",
+      --   desc = "Prev Reference", cond = function() return LazyVim.lsp.words.enabled end },
     }
 
   return M._keys
