@@ -9,7 +9,10 @@ return {
       {
         "rafamadriz/friendly-snippets",
         config = function()
-          require("luasnip.loaders.from_vscode").lazy_load()
+          local exc = { "css", "all" }
+          require("luasnip.loaders.from_vscode").lazy_load({
+            exc = exc,
+          })
         end,
       },
       {
