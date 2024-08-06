@@ -101,8 +101,7 @@ function M.statuscolumn()
 
   local show_open_folds = vim.g.lazyvim_statuscolumn and vim.g.lazyvim_statuscolumn.folds_open
   local use_githl = vim.g.lazyvim_statuscolumn and vim.g.lazyvim_statuscolumn.folds_githl
-  local wanna = false
-  if show_signs and wanna then
+  if show_signs  then
     local signs = M.get_signs(buf, vim.v.lnum)
 
     ---@type Sign?,Sign?,Sign?
@@ -126,8 +125,7 @@ function M.statuscolumn()
         and not LazyVimx.ui.skip_foldexpr[buf]
         and tostring(vim.treesitter.foldexpr(vim.v.lnum)):sub(1, 1) == ">"
       then -- fold start
-        -- fold = { text = vim.opt.fillchars:get().foldopen or "", texthl = githl }
-            fold={}
+        fold = { text = vim.opt.fillchars:get().foldopen or "", texthl = githl }
       end
     end)
     -- Left: mark or non-git sign
