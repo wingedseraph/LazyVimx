@@ -4,7 +4,7 @@
 -- use `vim.keymap.set` instead
 local map = LazyVimx.safe_keymap_set
 
-map({ "n", "x" }, "za", "za", { desc = "fold open", expr = true, remap=true, silent = true })
+map({ "n", "x" }, "<za>", "<cmd>foldopen<cr>", { desc = "fold open", expr = true, remap=true, silent = true })
 -- better up/down
 map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
 map({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
