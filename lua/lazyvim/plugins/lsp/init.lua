@@ -48,7 +48,7 @@ return {
         },
         -- Enable lsp cursor word highlighting
         document_highlight = {
-          enabled = true,
+          enabled = false,
         },
         -- add any global capabilities here
         capabilities = {
