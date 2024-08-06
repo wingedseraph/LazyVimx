@@ -238,7 +238,7 @@ return {
       { "<leader>sh", "<cmd>FzfLua help_tags<cr>", desc = "Help Pages" },
       { "<leader>sH", "<cmd>FzfLua highlights<cr>", desc = "Search Highlight Groups" },
       { "<leader>sj", "<cmd>FzfLua jumps<cr>", desc = "Jumplist" },
-      { "<leader>sk", "<cmd>FzfLua keymaps<cr>", desc = "Key Maps" },
+      { "<leader>k", "<cmd>FzfLua keymaps<cr>", desc = "Key Maps" },
       { "<leader>sl", "<cmd>FzfLua loclist<cr>", desc = "Location List" },
       { "<leader>sM", "<cmd>FzfLua man_pages<cr>", desc = "Man Pages" },
       { "<leader>sm", "<cmd>FzfLua marks<cr>", desc = "Jump to Mark" },
