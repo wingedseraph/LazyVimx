@@ -192,40 +192,35 @@ return {
     "lukas-reineke/indent-blankline.nvim",
     event = "LazyFile",
     opts = function()
-      LazyVim.toggle.map("<leader>ug", {
-        name = "Indention Guides",
-        get = function()
-          return require("ibl.config").get_config(0).enabled
-        end,
-        set = function(state)
-          require("ibl").setup_buffer(0, { enabled = state })
-        end,
+      require("indent_blankline").setup({
+        indentLine_enabled = 0,
+        filetype_exclude = {
+          "help",
+          "terminal",
+          "lazy",
+          "lspinfo",
+          "TelescopePrompt",
+          "TelescopeResults",
+          "mason",
+          "nvdash",
+          "nvcheatsheet",
+          "",
+        },
+        buftype_exclude = { "terminal", "nofile" },
+        show_first_indent_level = false,
+        show_current_context = true,
+        show_current_context_start = true,
+        show_end_of_line = true,
+        use_treesitter = true,
+        show_current_context_start_on_current_line = false,
+        char = "",
+        -- char = "╎",
+        -- context_char = "",
       })
-
-      return {
-        indent = {
-          char = "│",
-          tab_char = "│",
-        },
-        scope = { show_start = false, show_end = false },
-        exclude = {
-          filetypes = {
-            "help",
-            "alpha",
-            "dashboard",
-            "neo-tree",
-            "Trouble",
-            "trouble",
-            "lazy",
-            "mason",
-            "notify",
-            "toggleterm",
-            "lazyterm",
-          },
-        },
-      }
+      vim.cmd.hi("clear IndentBlanklineContextStart")
+      vim.cmd.hi("link IndentBlanklineContextStart illuminatedCurWord")
     end,
-    main = "ibl",
+    version = "2.20.7",
   },
 
   -- icons
