@@ -27,6 +27,7 @@ return {
       local defaults = require("cmp.config.default")()
       local auto_select = true
       return {
+
         auto_brackets = {}, -- configure any filetype to auto add brackets
         completion = {
           completeopt = "menu,menuone,noinsert" .. (auto_select and "" or ",noselect"),
@@ -93,7 +94,7 @@ return {
           sorting = {
             comparators = {
               -- cmp_compare.recently_used,
-              cmp_compare.order,
+              require("cmp.config.compare").order,
             },
           },
 
