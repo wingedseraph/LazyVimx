@@ -126,7 +126,8 @@ function M.statuscolumn()
         and not LazyVimx.ui.skip_foldexpr[buf]
         and tostring(vim.treesitter.foldexpr(vim.v.lnum)):sub(1, 1) == ">"
       then -- fold start
-        fold = { text = vim.opt.fillchars:get().foldopen or "", texthl = githl }
+        -- fold = { text = vim.opt.fillchars:get().foldopen or "", texthl = githl }
+            fold={}
       end
     end)
     -- Left: mark or non-git sign
