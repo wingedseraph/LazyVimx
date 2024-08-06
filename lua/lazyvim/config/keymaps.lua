@@ -53,12 +53,12 @@ map(
 )
 
 -- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
-map("n", "n", "'Nn'[v:searchforward].'zv'", { expr = true, desc = "Next Search Result" })
-map("x", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next Search Result" })
-map("o", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next Search Result" })
-map("n", "N", "'nN'[v:searchforward].'zv'", { expr = true, desc = "Prev Search Result" })
-map("x", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev Search Result" })
-map("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev Search Result" })
+-- map("n", "n", "'Nn'[v:searchforward].'zv'", { expr = true, desc = "Next Search Result" })
+-- map("x", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next Search Result" })
+-- map("o", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next Search Result" })
+-- map("n", "N", "'nN'[v:searchforward].'zv'", { expr = true, desc = "Prev Search Result" })
+-- map("x", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev Search Result" })
+-- map("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev Search Result" })
 
 -- Add undo break-points
 map("i", ",", ",<c-g>u")
@@ -118,7 +118,7 @@ map("n", "[w", diagnostic_goto(false, "WARN"), { desc = "Prev Warning" })
 LazyVimx.toggle.map("<leader>uf", LazyVimx.toggle.format())
 LazyVimx.toggle.map("<leader>uF", LazyVimx.toggle.format(true))
 LazyVimx.toggle.map("<leader>us", LazyVimx.toggle("spell", { name = "Spelling" }))
-LazyVimx.toggle.map("<leader>uw", LazyVimx.toggle("wrap", { name = "Wrap" }))
+LazyVimx.toggle.map("<leader>ww", LazyVimx.toggle("wrap", { name = "Wrap" }))
 LazyVimx.toggle.map("<leader>uL", LazyVimx.toggle("relativenumber", { name = "Relative Number" }))
 LazyVimx.toggle.map("<leader>ud", LazyVimx.toggle.diagnostics)
 LazyVimx.toggle.map("<leader>ul", LazyVimx.toggle.number)
