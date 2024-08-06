@@ -4,11 +4,13 @@ return {
   {
     "hrsh7th/nvim-cmp",
     version = false, -- last release is way too old
-    event = "InsertEnter",
+    event = "VeryLazy",
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
+
+      "hrsh7th/cmp-cmdline",
     },
     -- Not all LSP servers add brackets when completing a function.
     -- To better deal with this, LazyVim adds a custom option to cmp,
@@ -20,7 +22,7 @@ return {
     -- }
     -- ```
     opts = function()
-      vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
+      -- vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
       local cmp = require("cmp")
       local defaults = require("cmp.config.default")()
       local auto_select = true
@@ -74,12 +76,30 @@ return {
             return item
           end,
         },
-        experimental = {
-          ghost_text = {
-            hl_group = "CmpGhostText",
-          },
-        },
+        -- experimental = {
+        --   ghost_text = {
+        --     hl_group = "CmpGhostText",
+        --   },
+        -- },
         sorting = defaults.sorting,
+        cmp.setup.cmdline({ "/", "?" }, {
+          mapping = cmp.mapping.preset.cmdline(),
+          sources = {
+            { name = "buffer" },
+          },
+        }),
+
+        cmp.setup.cmdline(":", {
+          sorting = {
+            comparators = {
+              -- cmp_compare.recently_used,
+              cmp_compare.order,
+            },
+          },
+
+          mapping = cmp.mapping.preset.cmdline(),
+          sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" } }),
+        }),
       }
     end,
     main = "lazyvim.util.cmp",
