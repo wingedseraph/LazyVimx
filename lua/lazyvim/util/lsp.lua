@@ -208,8 +208,8 @@ function M.formatter(opts)
   ---@type LazyFormatter
   local ret = {
     name = "LSP",
-    primary = true,
-    priority = 1,
+    primary = false,
+    priority = 1000,
     format = function(buf)
       M.format(LazyVimx.merge({}, filter, { bufnr = buf }))
     end,
