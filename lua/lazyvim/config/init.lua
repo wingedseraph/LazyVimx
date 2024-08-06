@@ -5,14 +5,13 @@ local M = {}
 
 M.version = "12.38.2" -- x-release-please-version
 LazyVim.config = M
-print("dddd")
+
 ---@class LazyVimOptions
 local defaults = {
   -- colorscheme can be a string like `catppuccin` or a function that will load the colorscheme
   ---@type string|fun()
   colorscheme = function()
-    vim.cmd.colorscheme("retrobox")
-    -- require("tokyonight").load()
+    require("tokyonight").load()
   end,
   -- load the default settings
   defaults = {
@@ -220,7 +219,7 @@ function M.setup(opts)
     msg = "Could not load your colorscheme",
     on_error = function(msg)
       LazyVim.error(msg)
-      vim.cmd.colorscheme("retrobox")
+      vim.cmd.colorscheme("habamax")
     end,
   })
   LazyVim.track()
