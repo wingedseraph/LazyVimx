@@ -11,7 +11,7 @@ return {
     {
       "<leader>p",
       function()
-        if LazyVim.pick.picker.name == "telescope" then
+        if LazyVimx.pick.picker.name == "telescope" then
           require("telescope").extensions.yank_history.yank_history({})
         else
           vim.cmd([[YankyRingHistory]])

@@ -79,7 +79,7 @@ return {
         },
       }
 
-      if LazyVim.has("neo-tree.nvim") then
+      if LazyVimx.has("neo-tree.nvim") then
         local pos = {
           filesystem = "left",
           buffers = "top",
@@ -87,7 +87,7 @@ return {
           document_symbols = "bottom",
           diagnostics = "bottom",
         }
-        local sources = LazyVim.opts("neo-tree.nvim").sources or {}
+        local sources = LazyVimx.opts("neo-tree.nvim").sources or {}
         for i, v in ipairs(sources) do
           table.insert(opts.left, i, {
             title = "Neo-Tree " .. v:gsub("_", " "):gsub("^%l", string.upper),
@@ -97,7 +97,7 @@ return {
             end,
             pinned = true,
             open = function()
-              vim.cmd(("Neotree show position=%s %s dir=%s"):format(pos[v] or "bottom", v, LazyVim.root()))
+              vim.cmd(("Neotree show position=%s %s dir=%s"):format(pos[v] or "bottom", v, LazyVimx.root()))
             end,
           })
         end

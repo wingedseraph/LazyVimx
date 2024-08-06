@@ -20,14 +20,14 @@ return {
     event = "VeryLazy",
     opts = function(_, opts)
       local colors = {
-        [""] = LazyVim.ui.fg("Special"),
-        ["Normal"] = LazyVim.ui.fg("Special"),
-        ["Warning"] = LazyVim.ui.fg("DiagnosticError"),
-        ["InProgress"] = LazyVim.ui.fg("DiagnosticWarn"),
+        [""] = LazyVimx.ui.fg("Special"),
+        ["Normal"] = LazyVimx.ui.fg("Special"),
+        ["Warning"] = LazyVimx.ui.fg("DiagnosticError"),
+        ["InProgress"] = LazyVimx.ui.fg("DiagnosticWarn"),
       }
       table.insert(opts.sections.lualine_x, 2, {
         function()
-          local icon = LazyVim.config.icons.kinds.Copilot
+          local icon = LazyVimx.config.icons.kinds.Copilot
           local status = require("copilot.api").status.data
           return icon .. (status.message or "")
         end,
@@ -35,7 +35,7 @@ return {
           if not package.loaded["copilot"] then
             return
           end
-          local ok, clients = pcall(LazyVim.lsp.get_clients, { name = "copilot", bufnr = 0 })
+          local ok, clients = pcall(LazyVimx.lsp.get_clients, { name = "copilot", bufnr = 0 })
           if not ok then
             return false
           end
@@ -65,7 +65,7 @@ return {
           copilot_cmp.setup(opts)
           -- attach cmp source whenever copilot attaches
           -- fixes lazy-loading issues with the copilot cmp source
-          LazyVim.lsp.on_attach(function(client)
+          LazyVimx.lsp.on_attach(function(client)
             copilot_cmp._on_insert_enter({})
           end, "copilot")
         end,

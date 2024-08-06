@@ -78,7 +78,7 @@ function M.foldtext()
   if not ret or type(ret) == "string" then
     ret = { { vim.api.nvim_buf_get_lines(0, vim.v.lnum - 1, vim.v.lnum, false)[1], {} } }
   end
-  table.insert(ret, { " " .. LazyVim.config.icons.misc.dots })
+  table.insert(ret, { " " .. LazyVimx.config.icons.misc.dots })
 
   if not vim.treesitter.foldtext then
     return table.concat(
@@ -123,7 +123,7 @@ function M.statuscolumn()
         fold = { text = vim.opt.fillchars:get().foldclose or "", texthl = githl or "Folded" }
       elseif
         show_open_folds
-        and not LazyVim.ui.skip_foldexpr[buf]
+        and not LazyVimx.ui.skip_foldexpr[buf]
         and tostring(vim.treesitter.foldexpr(vim.v.lnum)):sub(1, 1) == ">"
       then -- fold start
         fold = { text = vim.opt.fillchars:get().foldopen or "", texthl = githl }

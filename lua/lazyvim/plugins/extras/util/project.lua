@@ -1,9 +1,9 @@
 local pick = nil
 
 pick = function()
-  if LazyVim.pick.picker.name == "telescope" then
+  if LazyVimx.pick.picker.name == "telescope" then
     return vim.cmd("Telescope projects")
-  elseif LazyVim.pick.picker.name == "fzf" then
+  elseif LazyVimx.pick.picker.name == "fzf" then
     local fzf_lua = require("fzf-lua")
     local project = require("project_nvim.project")
     local history = require("project_nvim.utils.history")
@@ -63,7 +63,7 @@ pick = function()
             local ok = project.set_pwd(path)
             if ok then
               vim.api.nvim_win_close(0, false)
-              LazyVim.info("Change project dir to " .. path)
+              LazyVimx.info("Change project dir to " .. path)
             end
           end,
         },
@@ -91,7 +91,7 @@ return {
     event = "VeryLazy",
     config = function(_, opts)
       require("project_nvim").setup(opts)
-      LazyVim.on_load("telescope.nvim", function()
+      LazyVimx.on_load("telescope.nvim", function()
         require("telescope").load_extension("projects")
       end)
     end,

@@ -16,7 +16,7 @@ return {
       local opts = {
         symbols = {
           icons = {},
-          filter = vim.deepcopy(LazyVim.config.kind_filter),
+          filter = vim.deepcopy(LazyVimx.config.kind_filter),
         },
         keymaps = {
           up_and_jump = "<up>",
@@ -26,7 +26,7 @@ return {
 
       for kind, symbol in pairs(defaults.symbols.icons) do
         opts.symbols.icons[kind] = {
-          icon = LazyVim.config.icons.kinds[kind] or symbol.icon,
+          icon = LazyVimx.config.icons.kinds[kind] or symbol.icon,
           hl = symbol.hl,
         }
       end
@@ -39,13 +39,13 @@ return {
     "folke/edgy.nvim",
     optional = true,
     opts = function(_, opts)
-      local edgy_idx = LazyVim.plugin.extra_idx("ui.edgy")
-      local symbols_idx = LazyVim.plugin.extra_idx("editor.outline")
+      local edgy_idx = LazyVimx.plugin.extra_idx("ui.edgy")
+      local symbols_idx = LazyVimx.plugin.extra_idx("editor.outline")
 
       if edgy_idx and edgy_idx > symbols_idx then
-        LazyVim.warn(
+        LazyVimx.warn(
           "The `edgy.nvim` extra must be **imported** before the `outline.nvim` extra to work properly.",
-          { title = "LazyVim" }
+          { title = "LazyVimx" }
         )
       end
 

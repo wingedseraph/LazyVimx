@@ -1,6 +1,6 @@
 return {
   recommended = function()
-    return LazyVim.extras.wants({
+    return LazyVimx.extras.wants({
       ft = "helm",
       root = "Chart.yaml",
     })
@@ -20,7 +20,7 @@ return {
       },
       setup = {
         yamlls = function()
-          LazyVim.lsp.on_attach(function(client, buffer)
+          LazyVimx.lsp.on_attach(function(client, buffer)
             if vim.bo[buffer].filetype == "helm" then
               vim.schedule(function()
                 vim.cmd("LspStop ++force yamlls")

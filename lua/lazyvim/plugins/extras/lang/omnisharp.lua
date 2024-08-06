@@ -1,6 +1,6 @@
 return {
   recommended = function()
-    return LazyVim.extras.wants({
+    return LazyVimx.extras.wants({
       ft = { "cs", "vb" },
       root = { "*.sln", "*.csproj", "omnisharp.json", "function.json" },
     })

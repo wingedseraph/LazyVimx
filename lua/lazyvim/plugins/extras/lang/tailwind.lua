@@ -1,6 +1,6 @@
 return {
   recommended = function()
-    return LazyVim.extras.wants({
+    return LazyVimx.extras.wants({
       root = {
         "tailwind.config.js",
         "tailwind.config.cjs",
@@ -63,7 +63,7 @@ return {
       { "roobert/tailwindcss-colorizer-cmp.nvim", opts = {} },
     },
     opts = function(_, opts)
-      -- original LazyVim kind icon formatter
+      -- original LazyVimx kind icon formatter
       local format_kinds = opts.formatting.format
       opts.formatting.format = function(entry, item)
         format_kinds(entry, item) -- add icons

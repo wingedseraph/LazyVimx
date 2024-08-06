@@ -8,14 +8,14 @@ return {
       {
         "<leader>gG",
         function()
-          LazyVim.terminal.open({ "gitui" }, { esc_esc = false, ctrl_hjkl = false })
+          LazyVimx.terminal.open({ "gitui" }, { esc_esc = false, ctrl_hjkl = false })
         end,
         desc = "GitUi (cwd)",
       },
       {
         "<leader>gg",
         function()
-          LazyVim.terminal.open({ "gitui" }, { cwd = LazyVim.root.get(), esc_esc = false, ctrl_hjkl = false })
+          LazyVimx.terminal.open({ "gitui" }, { cwd = LazyVimx.root.get(), esc_esc = false, ctrl_hjkl = false })
         end,
         desc = "GitUi (Root Dir)",
       },
@@ -23,7 +23,7 @@ return {
     init = function()
       -- delete lazygit keymap for file history
       vim.api.nvim_create_autocmd("User", {
-        pattern = "LazyVimKeymaps",
+        pattern = "LazyVimxKeymaps",
         once = true,
         callback = function()
           pcall(vim.keymap.del, "n", "<leader>gf")

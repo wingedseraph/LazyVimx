@@ -22,7 +22,7 @@ return {
     }
 
     for plugin, engine in pairs(map) do
-      if LazyVim.has(plugin) then
+      if LazyVimx.has(plugin) then
         opts.snippet_engine = engine
         return
       end

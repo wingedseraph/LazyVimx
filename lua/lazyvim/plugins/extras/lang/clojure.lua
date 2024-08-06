@@ -1,6 +1,6 @@
 return {
   recommended = function()
-    return LazyVim.extras.wants({
+    return LazyVimx.extras.wants({
       ft = { "clojure", "edn" },
       root = { "project.clj", "deps.edn", "build.boot", "shadow-cljs.edn", "bb.edn" },
     })

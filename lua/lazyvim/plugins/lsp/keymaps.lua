@@ -25,17 +25,17 @@ function M.get()
       { "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" }, has = "codeAction" },
       { "<leader>cc", vim.lsp.codelens.run, desc = "Run Codelens", mode = { "n", "v" }, has = "codeLens" },
       { "<leader>cC", vim.lsp.codelens.refresh, desc = "Refresh & Display Codelens", mode = { "n" }, has = "codeLens" },
-      { "<leader>cR", LazyVim.lsp.rename_file, desc = "Rename File", mode ={"n"}, has = { "workspace/didRenameFiles", "workspace/willRenameFiles" } },
+      { "<leader>cR", LazyVimx.lsp.rename_file, desc = "Rename File", mode ={"n"}, has = { "workspace/didRenameFiles", "workspace/willRenameFiles" } },
       { "<leader>cr", vim.lsp.buf.rename, desc = "Rename", has = "rename" },
-      { "<leader>cA", LazyVim.lsp.action.source, desc = "Source Action", has = "codeAction" },
-      { "]]", function() LazyVim.lsp.words.jump(vim.v.count1) end, has = "documentHighlight",
-        desc = "Next Reference", cond = function() return LazyVim.lsp.words.enabled end },
-      { "[[", function() LazyVim.lsp.words.jump(-vim.v.count1) end, has = "documentHighlight",
-        desc = "Prev Reference", cond = function() return LazyVim.lsp.words.enabled end },
-      -- { "<a-n>", function() LazyVim.lsp.words.jump(vim.v.count1, true) end, has = "documentHighlight",
-      --   desc = "Next Reference", cond = function() return LazyVim.lsp.words.enabled end },
-      -- { "<a-p>", function() LazyVim.lsp.words.jump(-vim.v.count1, true) end, has = "documentHighlight",
-      --   desc = "Prev Reference", cond = function() return LazyVim.lsp.words.enabled end },
+      { "<leader>cA", LazyVimx.lsp.action.source, desc = "Source Action", has = "codeAction" },
+      { "]]", function() LazyVimx.lsp.words.jump(vim.v.count1) end, has = "documentHighlight",
+        desc = "Next Reference", cond = function() return LazyVimx.lsp.words.enabled end },
+      { "[[", function() LazyVimx.lsp.words.jump(-vim.v.count1) end, has = "documentHighlight",
+        desc = "Prev Reference", cond = function() return LazyVimx.lsp.words.enabled end },
+      -- { "<a-n>", function() LazyVimx.lsp.words.jump(vim.v.count1, true) end, has = "documentHighlight",
+      --   desc = "Next Reference", cond = function() return LazyVimx.lsp.words.enabled end },
+      -- { "<a-p>", function() LazyVimx.lsp.words.jump(-vim.v.count1, true) end, has = "documentHighlight",
+      --   desc = "Prev Reference", cond = function() return LazyVimx.lsp.words.enabled end },
     }
 
   return M._keys
@@ -52,7 +52,7 @@ function M.has(buffer, method)
     return false
   end
   method = method:find("/") and method or "textDocument/" .. method
-  local clients = LazyVim.lsp.get_clients({ bufnr = buffer })
+  local clients = LazyVimx.lsp.get_clients({ bufnr = buffer })
   for _, client in ipairs(clients) do
     if client.supports_method(method) then
       return true
@@ -68,8 +68,8 @@ function M.resolve(buffer)
     return {}
   end
   local spec = M.get()
-  local opts = LazyVim.opts("nvim-lspconfig")
-  local clients = LazyVim.lsp.get_clients({ bufnr = buffer })
+  local opts = LazyVimx.opts("nvim-lspconfig")
+  local clients = LazyVimx.lsp.get_clients({ bufnr = buffer })
   for _, client in ipairs(clients) do
     local maps = opts.servers[client.name] and opts.servers[client.name].keys or {}
     vim.list_extend(spec, maps)

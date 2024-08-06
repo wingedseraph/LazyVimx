@@ -25,7 +25,7 @@ local picker = {
       local function open_cwd_dir()
         local action_state = require("telescope.actions.state")
         local line = action_state.get_current_line()
-        LazyVim.pick.open(
+        LazyVimx.pick.open(
           builtin,
           vim.tbl_deep_extend("force", {}, opts or {}, {
             root = false,
@@ -44,7 +44,7 @@ local picker = {
     require("telescope.builtin")[builtin](opts)
   end,
 }
-if not LazyVim.pick.register(picker) then
+if not LazyVimx.pick.register(picker) then
   return {}
 end
 
@@ -57,7 +57,7 @@ return {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
     enabled = function()
-      return LazyVim.pick.want() == "telescope"
+      return LazyVimx.pick.want() == "telescope"
     end,
     version = false, -- telescope did only one release, so use HEAD for now
     dependencies = {
@@ -67,17 +67,17 @@ return {
           or "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
         enabled = have_make or have_cmake,
         config = function(plugin)
-          LazyVim.on_load("telescope.nvim", function()
+          LazyVimx.on_load("telescope.nvim", function()
             local ok, err = pcall(require("telescope").load_extension, "fzf")
             if not ok then
-              local lib = plugin.dir .. "/build/libfzf." .. (LazyVim.is_win() and "dll" or "so")
+              local lib = plugin.dir .. "/build/libfzf." .. (LazyVimx.is_win() and "dll" or "so")
               if not vim.uv.fs_stat(lib) then
-                LazyVim.warn("`telescope-fzf-native.nvim` not built. Rebuilding...")
+                LazyVimx.warn("`telescope-fzf-native.nvim` not built. Rebuilding...")
                 require("lazy").build({ plugins = { plugin }, show = false }):wait(function()
-                  LazyVim.info("Rebuilding `telescope-fzf-native.nvim` done.\nPlease restart Neovim.")
+                  LazyVimx.info("Rebuilding `telescope-fzf-native.nvim` done.\nPlease restart Neovim.")
                 end)
               else
-                LazyVim.error("Failed to load `telescope-fzf-native.nvim`:\n" .. err)
+                LazyVimx.error("Failed to load `telescope-fzf-native.nvim`:\n" .. err)
               end
             end
           end)
@@ -90,17 +90,17 @@ return {
         "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>",
         desc = "Switch Buffer",
       },
-      { "<leader>/", LazyVim.pick("live_grep"), desc = "Grep (Root Dir)" },
+      { "<leader>/", LazyVimx.pick("live_grep"), desc = "Grep (Root Dir)" },
       { "<leader>:", "<cmd>Telescope command_history<cr>", desc = "Command History" },
-      { "<leader><space>", LazyVim.pick("files"), desc = "Find Files (Root Dir)" },
+      { "<leader><space>", LazyVimx.pick("files"), desc = "Find Files (Root Dir)" },
       -- find
       { "<leader>fb", "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>", desc = "Buffers" },
-      { "<leader>fc", LazyVim.pick.config_files(), desc = "Find Config File" },
-      { "<leader>ff", LazyVim.pick("files"), desc = "Find Files (Root Dir)" },
-      { "<leader>fF", LazyVim.pick("files", { root = false }), desc = "Find Files (cwd)" },
+      { "<leader>fc", LazyVimx.pick.config_files(), desc = "Find Config File" },
+      { "<leader>ff", LazyVimx.pick("files"), desc = "Find Files (Root Dir)" },
+      { "<leader>fF", LazyVimx.pick("files", { root = false }), desc = "Find Files (cwd)" },
       { "<leader>fg", "<cmd>Telescope git_files<cr>", desc = "Find Files (git-files)" },
       { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
-      { "<leader>fR", LazyVim.pick("oldfiles", { cwd = vim.uv.cwd() }), desc = "Recent (cwd)" },
+      { "<leader>fR", LazyVimx.pick("oldfiles", { cwd = vim.uv.cwd() }), desc = "Recent (cwd)" },
       -- git
       { "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "Commits" },
       { "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "Status" },
@@ -112,8 +112,8 @@ return {
       { "<leader>sC", "<cmd>Telescope commands<cr>", desc = "Commands" },
       { "<leader>sd", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Document Diagnostics" },
       { "<leader>sD", "<cmd>Telescope diagnostics<cr>", desc = "Workspace Diagnostics" },
-      { "<leader>sg", LazyVim.pick("live_grep"), desc = "Grep (Root Dir)" },
-      { "<leader>sG", LazyVim.pick("live_grep", { root = false }), desc = "Grep (cwd)" },
+      { "<leader>sg", LazyVimx.pick("live_grep"), desc = "Grep (Root Dir)" },
+      { "<leader>sG", LazyVimx.pick("live_grep", { root = false }), desc = "Grep (cwd)" },
       { "<leader>sh", "<cmd>Telescope help_tags<cr>", desc = "Help Pages" },
       { "<leader>sH", "<cmd>Telescope highlights<cr>", desc = "Search Highlight Groups" },
       { "<leader>sj", "<cmd>Telescope jumplist<cr>", desc = "Jumplist" },
@@ -124,16 +124,16 @@ return {
       { "<leader>so", "<cmd>Telescope vim_options<cr>", desc = "Options" },
       { "<leader>sR", "<cmd>Telescope resume<cr>", desc = "Resume" },
       { "<leader>sq", "<cmd>Telescope quickfix<cr>", desc = "Quickfix List" },
-      { "<leader>sw", LazyVim.pick("grep_string", { word_match = "-w" }), desc = "Word (Root Dir)" },
-      { "<leader>sW", LazyVim.pick("grep_string", { root = false, word_match = "-w" }), desc = "Word (cwd)" },
-      { "<leader>sw", LazyVim.pick("grep_string"), mode = "v", desc = "Selection (Root Dir)" },
-      { "<leader>sW", LazyVim.pick("grep_string", { root = false }), mode = "v", desc = "Selection (cwd)" },
-      { "<leader>uC", LazyVim.pick("colorscheme", { enable_preview = true }), desc = "Colorscheme with Preview" },
+      { "<leader>sw", LazyVimx.pick("grep_string", { word_match = "-w" }), desc = "Word (Root Dir)" },
+      { "<leader>sW", LazyVimx.pick("grep_string", { root = false, word_match = "-w" }), desc = "Word (cwd)" },
+      { "<leader>sw", LazyVimx.pick("grep_string"), mode = "v", desc = "Selection (Root Dir)" },
+      { "<leader>sW", LazyVimx.pick("grep_string", { root = false }), mode = "v", desc = "Selection (cwd)" },
+      { "<leader>uC", LazyVimx.pick("colorscheme", { enable_preview = true }), desc = "Colorscheme with Preview" },
       {
         "<leader>ss",
         function()
           require("telescope.builtin").lsp_document_symbols({
-            symbols = LazyVim.config.get_kind_filter(),
+            symbols = LazyVimx.config.get_kind_filter(),
           })
         end,
         desc = "Goto Symbol",
@@ -142,7 +142,7 @@ return {
         "<leader>sS",
         function()
           require("telescope.builtin").lsp_dynamic_workspace_symbols({
-            symbols = LazyVim.config.get_kind_filter(),
+            symbols = LazyVimx.config.get_kind_filter(),
           })
         end,
         desc = "Goto Symbol (Workspace)",
@@ -157,12 +157,12 @@ return {
       local find_files_no_ignore = function()
         local action_state = require("telescope.actions.state")
         local line = action_state.get_current_line()
-        LazyVim.pick("find_files", { no_ignore = true, default_text = line })()
+        LazyVimx.pick("find_files", { no_ignore = true, default_text = line })()
       end
       local find_files_with_hidden = function()
         local action_state = require("telescope.actions.state")
         local line = action_state.get_current_line()
-        LazyVim.pick("find_files", { hidden = true, default_text = line })()
+        LazyVimx.pick("find_files", { hidden = true, default_text = line })()
       end
 
       local function find_command()
@@ -227,7 +227,7 @@ return {
     "nvim-telescope/telescope.nvim",
     optional = true,
     opts = function(_, opts)
-      if not LazyVim.has("flash.nvim") then
+      if not LazyVimx.has("flash.nvim") then
         return
       end
       local function flash(prompt_bufnr)
@@ -259,7 +259,7 @@ return {
     "stevearc/dressing.nvim",
     lazy = true,
     enabled = function()
-      return LazyVim.pick.want() == "telescope"
+      return LazyVimx.pick.want() == "telescope"
     end,
     init = function()
       ---@diagnostic disable-next-line: duplicate-set-field
@@ -278,7 +278,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = function()
-      if LazyVim.pick.want() ~= "telescope" then
+      if LazyVimx.pick.want() ~= "telescope" then
         return
       end
       local Keys = require("lazyvim.plugins.lsp.keymaps").get()

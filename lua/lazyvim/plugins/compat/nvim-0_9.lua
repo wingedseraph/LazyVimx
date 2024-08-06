@@ -31,7 +31,7 @@ return {
   {
     import = "foobar",
     enabled = function()
-      LazyVim.plugin.save_core()
+      LazyVimx.plugin.save_core()
       return false
     end,
   },

@@ -8,7 +8,7 @@ return {
     },
     options = {
       -- Whether to use for editing directories
-      -- Disabled by default in LazyVim because neo-tree is used for that
+      -- Disabled by default in LazyVimx because neo-tree is used for that
       use_as_default_explorer = false,
     },
   },
@@ -104,7 +104,7 @@ return {
     vim.api.nvim_create_autocmd("User", {
       pattern = "MiniFilesActionRename",
       callback = function(event)
-        LazyVim.lsp.on_rename(event.data.from, event.data.to)
+        LazyVimx.lsp.on_rename(event.data.from, event.data.to)
       end,
     })
   end,

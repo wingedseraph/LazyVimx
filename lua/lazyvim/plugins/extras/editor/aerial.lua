@@ -4,7 +4,7 @@ return {
     "stevearc/aerial.nvim",
     event = "LazyFile",
     opts = function()
-      local icons = vim.deepcopy(LazyVim.config.icons.kinds)
+      local icons = vim.deepcopy(LazyVimx.config.icons.kinds)
 
       -- HACK: fix lua's weird choice for `Package` for control
       -- structures like if/else/for/etc.
@@ -12,8 +12,8 @@ return {
 
       ---@type table<string, string[]>|false
       local filter_kind = false
-      if LazyVim.config.kind_filter then
-        filter_kind = assert(vim.deepcopy(LazyVim.config.kind_filter))
+      if LazyVimx.config.kind_filter then
+        filter_kind = assert(vim.deepcopy(LazyVimx.config.kind_filter))
         filter_kind._ = filter_kind.default
         filter_kind.default = nil
       end
@@ -60,7 +60,7 @@ return {
     "nvim-telescope/telescope.nvim",
     optional = true,
     opts = function()
-      LazyVim.on_load("telescope.nvim", function()
+      LazyVimx.on_load("telescope.nvim", function()
         require("telescope").load_extension("aerial")
       end)
     end,
@@ -78,12 +78,12 @@ return {
     "folke/edgy.nvim",
     optional = true,
     opts = function(_, opts)
-      local edgy_idx = LazyVim.plugin.extra_idx("ui.edgy")
-      local aerial_idx = LazyVim.plugin.extra_idx("editor.aerial")
+      local edgy_idx = LazyVimx.plugin.extra_idx("ui.edgy")
+      local aerial_idx = LazyVimx.plugin.extra_idx("editor.aerial")
 
       if edgy_idx and edgy_idx > aerial_idx then
-        LazyVim.warn("The `edgy.nvim` extra must be **imported** before the `aerial.nvim` extra to work properly.", {
-          title = "LazyVim",
+        LazyVimx.warn("The `edgy.nvim` extra must be **imported** before the `aerial.nvim` extra to work properly.", {
+          title = "LazyVimx",
         })
       end
 

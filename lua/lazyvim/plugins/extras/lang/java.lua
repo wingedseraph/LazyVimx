@@ -17,7 +17,7 @@ end
 
 return {
   recommended = function()
-    return LazyVim.extras.wants({
+    return LazyVimx.extras.wants({
       ft = "java",
       root = {
         "build.gradle",
@@ -133,7 +133,7 @@ return {
       -- if nvim-dap is enabled with java debug/test.
       local mason_registry = require("mason-registry")
       local bundles = {} ---@type string[]
-      if opts.dap and LazyVim.has("nvim-dap") and mason_registry.is_installed("java-debug-adapter") then
+      if opts.dap and LazyVimx.has("nvim-dap") and mason_registry.is_installed("java-debug-adapter") then
         local java_dbg_pkg = mason_registry.get_package("java-debug-adapter")
         local java_dbg_path = java_dbg_pkg:get_install_path()
         local jar_patterns = {
@@ -166,7 +166,7 @@ return {
           },
           settings = opts.settings,
           -- enable CMP capabilities
-          capabilities = LazyVim.has("cmp-nvim-lsp") and require("cmp_nvim_lsp").default_capabilities() or nil,
+          capabilities = LazyVimx.has("cmp-nvim-lsp") and require("cmp_nvim_lsp").default_capabilities() or nil,
         }, opts.jdtls)
 
         -- Existing server will be reused if the root_dir matches.
@@ -225,7 +225,7 @@ return {
               },
             })
 
-            if opts.dap and LazyVim.has("nvim-dap") and mason_registry.is_installed("java-debug-adapter") then
+            if opts.dap and LazyVimx.has("nvim-dap") and mason_registry.is_installed("java-debug-adapter") then
               -- custom init for Java debugger
               require("jdtls").setup_dap(opts.dap)
               require("jdtls.dap").setup_dap_main_class_configs(opts.dap_main)

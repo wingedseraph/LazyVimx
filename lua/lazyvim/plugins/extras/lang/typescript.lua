@@ -1,6 +1,6 @@
 return {
   recommended = function()
-    return LazyVim.extras.wants({
+    return LazyVimx.extras.wants({
       ft = {
         "javascript",
         "javascriptreact",
@@ -64,7 +64,7 @@ return {
               "gD",
               function()
                 local params = vim.lsp.util.make_position_params()
-                LazyVim.lsp.execute({
+                LazyVimx.lsp.execute({
                   command = "typescript.goToSourceDefinition",
                   arguments = { params.textDocument.uri, params.position },
                   open = true,
@@ -75,7 +75,7 @@ return {
             {
               "gR",
               function()
-                LazyVim.lsp.execute({
+                LazyVimx.lsp.execute({
                   command = "typescript.findAllFileReferences",
                   arguments = { vim.uri_from_bufnr(0) },
                   open = true,
@@ -85,28 +85,28 @@ return {
             },
             {
               "<leader>co",
-              LazyVim.lsp.action["source.organizeImports"],
+              LazyVimx.lsp.action["source.organizeImports"],
               desc = "Organize Imports",
             },
             {
               "<leader>cM",
-              LazyVim.lsp.action["source.addMissingImports.ts"],
+              LazyVimx.lsp.action["source.addMissingImports.ts"],
               desc = "Add missing imports",
             },
             {
               "<leader>cu",
-              LazyVim.lsp.action["source.removeUnused.ts"],
+              LazyVimx.lsp.action["source.removeUnused.ts"],
               desc = "Remove unused imports",
             },
             {
               "<leader>cD",
-              LazyVim.lsp.action["source.fixAll.ts"],
+              LazyVimx.lsp.action["source.fixAll.ts"],
               desc = "Fix all diagnostics",
             },
             {
               "<leader>cV",
               function()
-                LazyVim.lsp.execute({ command = "typescript.selectTypeScriptVersion" })
+                LazyVimx.lsp.execute({ command = "typescript.selectTypeScriptVersion" })
               end,
               desc = "Select TS workspace version",
             },
@@ -119,7 +119,7 @@ return {
           return true
         end,
         vtsls = function(_, opts)
-          LazyVim.lsp.on_attach(function(client, buffer)
+          LazyVimx.lsp.on_attach(function(client, buffer)
             client.commands["_typescript.moveToFileRefactoring"] = function(command, ctx)
               ---@type string, string, lsp.Range
               local action, uri, range = unpack(command.arguments)
@@ -200,7 +200,7 @@ return {
             command = "node",
             -- 💀 Make sure to update this path to point to your installation
             args = {
-              LazyVim.get_pkg_path("js-debug-adapter", "/js-debug/src/dapDebugServer.js"),
+              LazyVimx.get_pkg_path("js-debug-adapter", "/js-debug/src/dapDebugServer.js"),
               "${port}",
             },
           },

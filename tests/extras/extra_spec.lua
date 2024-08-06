@@ -3,7 +3,7 @@
 local Icons = require("mini.icons")
 
 local Plugin = require("lazy.core.plugin")
-_G.LazyVim = require("lazyvim.util")
+_G.LazyVimx = require("lazyvim.util")
 
 describe("Extra", function()
   local Config = require("lazy.core.config")

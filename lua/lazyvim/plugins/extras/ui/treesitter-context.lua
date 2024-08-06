@@ -5,7 +5,7 @@ return {
   opts = function()
     local tsc = require("treesitter-context")
 
-    LazyVim.toggle.map("<leader>ut", {
+    LazyVimx.toggle.map("<leader>ut", {
       name = "Treesitter Context",
       get = tsc.enabled,
       set = function(state)

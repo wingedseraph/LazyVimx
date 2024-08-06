@@ -11,7 +11,7 @@ local ruff = vim.g.lazyvim_python_ruff or "ruff"
 
 return {
   recommended = function()
-    return LazyVim.extras.wants({
+    return LazyVimx.extras.wants({
       ft = "python",
       root = {
         "pyproject.toml",
@@ -41,7 +41,7 @@ return {
           keys = {
             {
               "<leader>co",
-              LazyVim.lsp.action["source.organizeImports"],
+              LazyVimx.lsp.action["source.organizeImports"],
               desc = "Organize Imports",
             },
           },
@@ -50,7 +50,7 @@ return {
           keys = {
             {
               "<leader>co",
-              LazyVim.lsp.action["source.organizeImports"],
+              LazyVimx.lsp.action["source.organizeImports"],
               desc = "Organize Imports",
             },
           },
@@ -58,7 +58,7 @@ return {
       },
       setup = {
         [ruff] = function()
-          LazyVim.lsp.on_attach(function(client, _)
+          LazyVimx.lsp.on_attach(function(client, _)
             -- Disable hover in favor of Pyright
             client.server_capabilities.hoverProvider = false
           end, ruff)
@@ -104,9 +104,9 @@ return {
       },
       config = function()
         if vim.fn.has("win32") == 1 then
-          require("dap-python").setup(LazyVim.get_pkg_path("debugpy", "/venv/Scripts/pythonw.exe"))
+          require("dap-python").setup(LazyVimx.get_pkg_path("debugpy", "/venv/Scripts/pythonw.exe"))
         else
-          require("dap-python").setup(LazyVim.get_pkg_path("debugpy", "/venv/bin/python"))
+          require("dap-python").setup(LazyVimx.get_pkg_path("debugpy", "/venv/bin/python"))
         end
       end,
     },
@@ -117,7 +117,7 @@ return {
     branch = "regexp", -- Use this branch for the new version
     cmd = "VenvSelect",
     enabled = function()
-      return LazyVim.has("telescope.nvim")
+      return LazyVimx.has("telescope.nvim")
     end,
     opts = {
       settings = {

@@ -89,7 +89,7 @@ function M.confirm(opts)
   }, opts or {})
   return function(fallback)
     if cmp.core.view:visible() or vim.fn.pumvisible() == 1 then
-      LazyVim.create_undo()
+      LazyVimx.create_undo()
       if cmp.confirm(opts) then
         return
       end
@@ -103,7 +103,7 @@ function M.expand(snippet)
   -- Always use the top-level session.
   -- Otherwise, when on the first placeholder and selecting a new completion,
   -- the nested session will be used instead of the top-level session.
-  -- See: https://github.com/LazyVim/LazyVim/issues/3199
+  -- See: https://github.com/LazyVimx/LazyVimx/issues/3199
   local session = vim.snippet.active() and vim.snippet._session or nil
 
   local ok, err = pcall(vim.snippet.expand, snippet)
@@ -114,7 +114,7 @@ function M.expand(snippet)
     local msg = ok and "Failed to parse snippet,\nbut was able to fix it automatically."
       or ("Failed to parse snippet.\n" .. err)
 
-    LazyVim[ok and "warn" or "error"](
+    LazyVimx[ok and "warn" or "error"](
       ([[%s
 ```%s
 %s
@@ -141,18 +141,18 @@ function M.setup(opts)
     if ok then
       return ret
     end
-    return LazyVim.cmp.snippet_preview(input)
+    return LazyVimx.cmp.snippet_preview(input)
   end
 
   local cmp = require("cmp")
   cmp.setup(opts)
   cmp.event:on("confirm_done", function(event)
     if vim.tbl_contains(opts.auto_brackets or {}, vim.bo.filetype) then
-      LazyVim.cmp.auto_brackets(event.entry)
+      LazyVimx.cmp.auto_brackets(event.entry)
     end
   end)
   cmp.event:on("menu_opened", function(event)
-    LazyVim.cmp.add_missing_snippet_docs(event.window)
+    LazyVimx.cmp.add_missing_snippet_docs(event.window)
   end)
 end
 

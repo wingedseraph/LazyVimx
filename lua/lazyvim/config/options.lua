@@ -3,30 +3,30 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 print("opti")
 
--- LazyVim auto format
+-- LazyVimx auto format
 vim.g.autoformat = true
 
--- LazyVim picker to use.
+-- LazyVimx picker to use.
 -- Can be one of: telescope, fzf
 -- Leave it to "auto" to automatically use the picker
 -- enabled with `:LazyExtras`
 vim.g.lazyvim_picker = "auto"
 
--- LazyVim root dir detection
+-- LazyVimx root dir detection
 -- Each entry can be:
 -- * the name of a detector function like `lsp` or `cwd`
 -- * a pattern or array of patterns like `.git` or `lua`.
 -- * a function with signature `function(buf) -> string|string[]`
 vim.g.root_spec = { "lsp", { ".git", "lua" }, "cwd" }
 
--- LazyVim automatically configures lazygit:
+-- LazyVimx automatically configures lazygit:
 --  * theme, based on the active colorscheme.
 --  * editorPreset to nvim-remote
 --  * enables nerd font icons
 -- Set to false to disable.
 vim.g.lazygit_config = true
 
--- Options for the LazyVim statuscolumn
+-- Options for the LazyVimx statuscolumn
 vim.g.lazyvim_statuscolumn = {
   folds_open = false, -- show fold sign when fold is open
   folds_githl = false, -- highlight fold sign with git sign color
@@ -36,7 +36,7 @@ vim.g.lazyvim_statuscolumn = {
 -- This sets `vim.o.shell` and does some additional configuration for:
 -- * pwsh
 -- * powershell
--- LazyVim.terminal.setup("pwsh")
+-- LazyVimx.terminal.setup("pwsh")
 
 -- Hide deprecation warnings
 vim.g.deprecation_warnings = false

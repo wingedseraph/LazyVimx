@@ -32,7 +32,7 @@ M.theme = {
   unstagedChangesColor = { fg = "DiagnosticError" },
 }
 
-M.theme_path = LazyVim.norm(vim.fn.stdpath("cache") .. "/lazygit-theme.yml")
+M.theme_path = LazyVimx.norm(vim.fn.stdpath("cache") .. "/lazygit-theme.yml")
 
 -- re-create config file on startup
 M.dirty = true
@@ -48,7 +48,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 ---@param opts? LazyTermOpts | {args?: string[]}
 function M.open(opts)
   if vim.g.lazygit_theme ~= nil then
-    LazyVim.deprecate("vim.g.lazygit_theme", "vim.g.lazygit_config")
+    LazyVimx.deprecate("vim.g.lazygit_theme", "vim.g.lazygit_config")
   end
 
   opts = vim.tbl_deep_extend("force", {}, {
@@ -69,11 +69,11 @@ function M.open(opts)
       local ok, lines = pcall(Process.exec, { "lazygit", "-cd" })
       if ok then
         M.config_dir = lines[1]
-        vim.env.LG_CONFIG_FILE = LazyVim.norm(M.config_dir .. "/config.yml" .. "," .. M.theme_path)
+        vim.env.LG_CONFIG_FILE = LazyVimx.norm(M.config_dir .. "/config.yml" .. "," .. M.theme_path)
       else
         ---@diagnostic disable-next-line: cast-type-mismatch
         ---@cast lines string
-        LazyVim.error(
+        LazyVimx.error(
           { "Failed to get **lazygit** config directory.", "Will not apply **lazygit** config.", "", "# Error:", lines },
           { title = "lazygit" }
         )
@@ -81,7 +81,7 @@ function M.open(opts)
     end
   end
 
-  return LazyVim.terminal(cmd, opts)
+  return LazyVimx.terminal(cmd, opts)
 end
 
 function M.set_ansi_color(idx, color)
@@ -94,9 +94,9 @@ function M.get_color(v)
   ---@type string[]
   local color = {}
   if v.fg then
-    color[1] = LazyVim.ui.color(v.fg)
+    color[1] = LazyVimx.ui.color(v.fg)
   elseif v.bg then
-    color[1] = LazyVim.ui.color(v.bg, true)
+    color[1] = LazyVimx.ui.color(v.bg, true)
   end
   if v.bold then
     table.insert(color, "bold")
@@ -154,7 +154,7 @@ function M.blame_line(opts)
   local cursor = vim.api.nvim_win_get_cursor(0)
   local line = cursor[1]
   local file = vim.api.nvim_buf_get_name(0)
-  local root = LazyVim.root.detectors.pattern(0, { ".git" })[1] or "."
+  local root = LazyVimx.root.detectors.pattern(0, { ".git" })[1] or "."
   local cmd = { "git", "-C", root, "log", "-n", opts.count, "-u", "-L", line .. ",+1:" .. file }
   return require("lazy.util").float_cmd(cmd, opts)
 end
@@ -201,7 +201,7 @@ function M.browse()
 
   local function open(remote)
     if remote then
-      LazyVim.info(("Opening [%s](%s)"):format(remote.name, remote.url))
+      LazyVimx.info(("Opening [%s](%s)"):format(remote.name, remote.url))
       if vim.fn.has("nvim-0.10") == 0 then
         require("lazy.util").open(remote.url, { system = true })
         return
@@ -211,7 +211,7 @@ function M.browse()
   end
 
   if #remotes == 0 then
-    return LazyVim.error("No git remotes found")
+    return LazyVimx.error("No git remotes found")
   elseif #remotes == 1 then
     return open(remotes[1])
   end

@@ -77,7 +77,7 @@ return {
     ---@param opts TSConfig
     config = function(_, opts)
       if type(opts.ensure_installed) == "table" then
-        opts.ensure_installed = LazyVim.dedup(opts.ensure_installed)
+        opts.ensure_installed = LazyVimx.dedup(opts.ensure_installed)
       end
       require("nvim-treesitter.configs").setup(opts)
     end,
@@ -89,8 +89,8 @@ return {
     enabled = true,
     config = function()
       -- If treesitter is already loaded, we need to run config again for textobjects
-      if LazyVim.is_loaded("nvim-treesitter") then
-        local opts = LazyVim.opts("nvim-treesitter")
+      if LazyVimx.is_loaded("nvim-treesitter") then
+        local opts = LazyVimx.opts("nvim-treesitter")
         require("nvim-treesitter.configs").setup({ textobjects = opts.textobjects })
       end
 

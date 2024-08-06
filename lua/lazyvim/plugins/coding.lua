@@ -13,7 +13,7 @@ return {
       "hrsh7th/cmp-cmdline",
     },
     -- Not all LSP servers add brackets when completing a function.
-    -- To better deal with this, LazyVim adds a custom option to cmp,
+    -- To better deal with this, LazyVimx adds a custom option to cmp,
     -- that you can configure. For example:
     --
     -- ```lua
@@ -46,9 +46,9 @@ return {
           ["<C-b>"] = cmp.mapping.scroll_docs(-4),
           ["<C-f>"] = cmp.mapping.scroll_docs(4),
           ["<C-Space>"] = cmp.mapping.complete(),
-          ["<CR>"] = LazyVim.cmp.confirm({ select = auto_select }),
-          ["<C-y>"] = LazyVim.cmp.confirm({ select = true }),
-          ["<S-CR>"] = LazyVim.cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+          ["<CR>"] = LazyVimx.cmp.confirm({ select = auto_select }),
+          ["<C-y>"] = LazyVimx.cmp.confirm({ select = true }),
+          ["<S-CR>"] = LazyVimx.cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
           ["<C-CR>"] = function(fallback)
             cmp.abort()
             fallback()
@@ -62,7 +62,7 @@ return {
         }),
         formatting = {
           format = function(entry, item)
-            local icons = LazyVim.config.icons.kinds
+            local icons = LazyVimx.config.icons.kinds
             if icons[item.kind] then
               item.kind = icons[item.kind] .. item.kind
             end
@@ -125,10 +125,10 @@ return {
     opts = function(_, opts)
       opts.snippet = {
         expand = function(item)
-          return LazyVim.cmp.expand(item.body)
+          return LazyVimx.cmp.expand(item.body)
         end,
       }
-      if LazyVim.has("nvim-snippets") then
+      if LazyVimx.has("nvim-snippets") then
         table.insert(opts.sources, { name = "snippets" })
       end
     end,
@@ -171,7 +171,7 @@ return {
       markdown = true,
     },
     config = function(_, opts)
-      LazyVim.mini.pairs(opts)
+      LazyVimx.mini.pairs(opts)
     end,
   },
 
@@ -203,8 +203,8 @@ return {
             { "%u[%l%d]+%f[^%l%d]", "%f[%S][%l%d]+%f[^%l%d]", "%f[%P][%l%d]+%f[^%l%d]", "^[%l%d]+%f[^%l%d]" },
             "^().*()$",
           },
-          i = LazyVim.mini.ai_indent, -- indent
-          g = LazyVim.mini.ai_buffer, -- buffer
+          i = LazyVimx.mini.ai_indent, -- indent
+          g = LazyVimx.mini.ai_buffer, -- buffer
           u = ai.gen_spec.function_call(), -- u for "Usage"
           U = ai.gen_spec.function_call({ name_pattern = "[%w_]" }), -- without dot in function name
         },
@@ -212,9 +212,9 @@ return {
     end,
     config = function(_, opts)
       require("mini.ai").setup(opts)
-      LazyVim.on_load("which-key.nvim", function()
+      LazyVimx.on_load("which-key.nvim", function()
         vim.schedule(function()
-          LazyVim.mini.ai_whichkey(opts)
+          LazyVimx.mini.ai_whichkey(opts)
         end)
       end)
     end,

@@ -13,32 +13,32 @@
 </h4>
 
 <div align="center"><p>
-    <a href="https://github.com/LazyVim/LazyVim/releases/latest">
-      <img alt="Latest release" src="https://img.shields.io/github/v/release/LazyVim/LazyVim?style=for-the-badge&logo=starship&color=C9CBFF&logoColor=D9E0EE&labelColor=302D41&include_prerelease&sort=semver" />
+    <a href="https://github.com/LazyVimx/LazyVimx/releases/latest">
+      <img alt="Latest release" src="https://img.shields.io/github/v/release/LazyVimx/LazyVimx?style=for-the-badge&logo=starship&color=C9CBFF&logoColor=D9E0EE&labelColor=302D41&include_prerelease&sort=semver" />
     </a>
-    <a href="https://github.com/LazyVim/LazyVim/pulse">
-      <img alt="Last commit" src="https://img.shields.io/github/last-commit/LazyVim/LazyVim?style=for-the-badge&logo=starship&color=8bd5ca&logoColor=D9E0EE&labelColor=302D41"/>
+    <a href="https://github.com/LazyVimx/LazyVimx/pulse">
+      <img alt="Last commit" src="https://img.shields.io/github/last-commit/LazyVimx/LazyVimx?style=for-the-badge&logo=starship&color=8bd5ca&logoColor=D9E0EE&labelColor=302D41"/>
     </a>
-    <a href="https://github.com/LazyVim/LazyVim/blob/main/LICENSE">
-      <img alt="License" src="https://img.shields.io/github/license/LazyVim/LazyVim?style=for-the-badge&logo=starship&color=ee999f&logoColor=D9E0EE&labelColor=302D41" />
+    <a href="https://github.com/LazyVimx/LazyVimx/blob/main/LICENSE">
+      <img alt="License" src="https://img.shields.io/github/license/LazyVimx/LazyVimx?style=for-the-badge&logo=starship&color=ee999f&logoColor=D9E0EE&labelColor=302D41" />
     </a>
-    <a href="https://github.com/LazyVim/LazyVim/stargazers">
-      <img alt="Stars" src="https://img.shields.io/github/stars/LazyVim/LazyVim?style=for-the-badge&logo=starship&color=c69ff5&logoColor=D9E0EE&labelColor=302D41" />
+    <a href="https://github.com/LazyVimx/LazyVimx/stargazers">
+      <img alt="Stars" src="https://img.shields.io/github/stars/LazyVimx/LazyVimx?style=for-the-badge&logo=starship&color=c69ff5&logoColor=D9E0EE&labelColor=302D41" />
     </a>
-    <a href="https://github.com/LazyVim/LazyVim/issues">
-      <img alt="Issues" src="https://img.shields.io/github/issues/LazyVim/LazyVim?style=for-the-badge&logo=bilibili&color=F5E0DC&logoColor=D9E0EE&labelColor=302D41" />
+    <a href="https://github.com/LazyVimx/LazyVimx/issues">
+      <img alt="Issues" src="https://img.shields.io/github/issues/LazyVimx/LazyVimx?style=for-the-badge&logo=bilibili&color=F5E0DC&logoColor=D9E0EE&labelColor=302D41" />
     </a>
-    <a href="https://github.com/LazyVim/LazyVim">
-      <img alt="Repo Size" src="https://img.shields.io/github/repo-size/LazyVim/LazyVim?color=%23DDB6F2&label=SIZE&logo=codesandbox&style=for-the-badge&logoColor=D9E0EE&labelColor=302D41" />
+    <a href="https://github.com/LazyVimx/LazyVimx">
+      <img alt="Repo Size" src="https://img.shields.io/github/repo-size/LazyVimx/LazyVimx?color=%23DDB6F2&label=SIZE&logo=codesandbox&style=for-the-badge&logoColor=D9E0EE&labelColor=302D41" />
     </a>
     <a href="https://twitter.com/intent/follow?screen_name=folke">
       <img alt="follow on Twitter" src="https://img.shields.io/twitter/follow/folke?style=for-the-badge&logo=twitter&color=8aadf3&logoColor=D9E0EE&labelColor=302D41" />
     </a>
 </div>
 
-LazyVim ist ein Neovim-Setup aufgebaut auf [💤 lazy.nvim](https://github.com/folke/lazy.nvim).
+LazyVimx ist ein Neovim-Setup aufgebaut auf [💤 lazy.nvim](https://github.com/folke/lazy.nvim).
 Es erleichtert das Anpassen und Erweitern von Ihrer Konfiguration.
-Anstatt von vorne anzufangen oder eine vorgefertigte Distro zu verwenden, gibt LazyVim das beste aus
+Anstatt von vorne anzufangen oder eine vorgefertigte Distro zu verwenden, gibt LazyVimx das beste aus
 beiden Welten - die Flexibilität Ihre Konfiguration zu verändern und einzustellen wie Sie es wollen
 und die Einfachheit von einem vorgefertigten Setup.
 
@@ -62,14 +62,14 @@ und die Einfachheit von einem vorgefertigten Setup.
 
 ## 🚀 Einstieg
 
-Sie können eine Startvorlage für **LazyVim** [hier](https://github.com/LazyVim/starter) finden
+Sie können eine Startvorlage für **LazyVimx** [hier](https://github.com/LazyVimx/starter) finden
 
 <details><summary>Versuchen Sie's mit Docker</summary>
 
 ```sh
 docker run -w /root -it --rm alpine:edge sh -uelic '
   apk add git lazygit neovim ripgrep alpine-sdk --update
-  git clone https://github.com/LazyVim/starter ~/.config/nvim
+  git clone https://github.com/LazyVimx/starter ~/.config/nvim
   cd ~/.config/nvim
   nvim
 '
@@ -77,7 +77,7 @@ docker run -w /root -it --rm alpine:edge sh -uelic '
 
 </details>
 
-<details><summary>Installieren von <a href="https://github.com/LazyVim/starter">LazyVim Starter</a></summary>
+<details><summary>Installieren von <a href="https://github.com/LazyVimx/starter">LazyVimx Starter</a></summary>
 
 - Neovim Files sichern:
 
@@ -89,7 +89,7 @@ docker run -w /root -it --rm alpine:edge sh -uelic '
 - Den Starter Klonen:
 
   ```sh
-  git clone https://github.com/LazyVim/starter ~/.config/nvim
+  git clone https://github.com/LazyVimx/starter ~/.config/nvim
   ```
 
 - Den `.git` Folder löschen, um die Konfiguration zu einer eigenen distro hinzuzufügen:
@@ -104,7 +104,7 @@ docker run -w /root -it --rm alpine:edge sh -uelic '
   nvim
   ```
 
-  Refer to the comments in the files on how to customize **LazyVim**.
+  Refer to the comments in the files on how to customize **LazyVimx**.
 
 </details>
 
@@ -112,8 +112,8 @@ docker run -w /root -it --rm alpine:edge sh -uelic '
 
 Die Dateien unter `config` werden automatisch und zur richtigen Zeit geladen,
 sodass ein manuelles `require` nicht nötig ist.
-**LazyVim** bringt Konfigurationsdatein mit, die **_vor_** Ihren eigenen geladen werden -
-siehe [hier](https://github.com/LazyVim/LazyVim/tree/main/lua/lazyvim/config)
+**LazyVimx** bringt Konfigurationsdatein mit, die **_vor_** Ihren eigenen geladen werden -
+siehe [hier](https://github.com/LazyVimx/LazyVimx/tree/main/lua/lazyvim/config)
 Sie können eigene Plugins unter `lua/plugins/` hinzufügen. Alle Dateien innerhalb
 dieses Ordners werden automatisch mit [lazy.nvim](https://github.com/folke/lazy.nvim)
 geladen.

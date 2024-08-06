@@ -30,7 +30,7 @@ local sql_ft = { "sql", "mysql", "plsql" }
 
 return {
   recommended = function()
-    return LazyVim.extras.wants({
+    return LazyVimx.extras.wants({
       ft = sql_ft,
     })
   end,

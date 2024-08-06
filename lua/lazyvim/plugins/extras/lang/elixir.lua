@@ -1,6 +1,6 @@
 return {
   recommended = function()
-    return LazyVim.extras.wants({
+    return LazyVimx.extras.wants({
       ft = { "elixir", "eelixir", "heex", "surface" },
       root = "mix.exs",
     })
@@ -15,7 +15,7 @@ return {
               "<leader>cp",
               function()
                 local params = vim.lsp.util.make_position_params()
-                LazyVim.lsp.execute({
+                LazyVimx.lsp.execute({
                   command = "manipulatePipes:serverid",
                   arguments = { "toPipe", params.textDocument.uri, params.position.line, params.position.character },
                 })
@@ -26,7 +26,7 @@ return {
               "<leader>cP",
               function()
                 local params = vim.lsp.util.make_position_params()
-                LazyVim.lsp.execute({
+                LazyVimx.lsp.execute({
                   command = "manipulatePipes:serverid",
                   arguments = { "fromPipe", params.textDocument.uri, params.position.line, params.position.character },
                 })

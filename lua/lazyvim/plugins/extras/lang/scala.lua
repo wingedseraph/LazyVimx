@@ -1,6 +1,6 @@
 return {
   recommended = function()
-    return LazyVim.extras.wants({
+    return LazyVimx.extras.wants({
       ft = "scala",
       root = { "build.sbt", "build.sc", "build.gradle", "pom.xml" },
     })
@@ -48,7 +48,7 @@ return {
         metals = function(_, opts)
           local metals = require("metals")
           local metals_config = vim.tbl_deep_extend("force", metals.bare_config(), opts)
-          metals_config.on_attach = LazyVim.has("nvim-dap") and metals.setup_dap or nil
+          metals_config.on_attach = LazyVimx.has("nvim-dap") and metals.setup_dap or nil
 
           local nvim_metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = true })
           vim.api.nvim_create_autocmd("FileType", {

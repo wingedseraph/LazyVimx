@@ -13,31 +13,31 @@
 </h4>
 
 <div align="center"><p>
-    <a href="https://github.com/LazyVim/LazyVim/releases/latest">
-      <img alt="Latest release" src="https://img.shields.io/github/v/release/LazyVim/LazyVim?style=for-the-badge&logo=starship&color=C9CBFF&logoColor=D9E0EE&labelColor=302D41&include_prerelease&sort=semver" />
+    <a href="https://github.com/LazyVimx/LazyVimx/releases/latest">
+      <img alt="Latest release" src="https://img.shields.io/github/v/release/LazyVimx/LazyVimx?style=for-the-badge&logo=starship&color=C9CBFF&logoColor=D9E0EE&labelColor=302D41&include_prerelease&sort=semver" />
     </a>
-    <a href="https://github.com/LazyVim/LazyVim/pulse">
-      <img alt="Last commit" src="https://img.shields.io/github/last-commit/LazyVim/LazyVim?style=for-the-badge&logo=starship&color=8bd5ca&logoColor=D9E0EE&labelColor=302D41"/>
+    <a href="https://github.com/LazyVimx/LazyVimx/pulse">
+      <img alt="Last commit" src="https://img.shields.io/github/last-commit/LazyVimx/LazyVimx?style=for-the-badge&logo=starship&color=8bd5ca&logoColor=D9E0EE&labelColor=302D41"/>
     </a>
-    <a href="https://github.com/LazyVim/LazyVim/blob/main/LICENSE">
-      <img alt="License" src="https://img.shields.io/github/license/LazyVim/LazyVim?style=for-the-badge&logo=starship&color=ee999f&logoColor=D9E0EE&labelColor=302D41" />
+    <a href="https://github.com/LazyVimx/LazyVimx/blob/main/LICENSE">
+      <img alt="License" src="https://img.shields.io/github/license/LazyVimx/LazyVimx?style=for-the-badge&logo=starship&color=ee999f&logoColor=D9E0EE&labelColor=302D41" />
     </a>
-    <a href="https://github.com/LazyVim/LazyVim/stargazers">
-      <img alt="Stars" src="https://img.shields.io/github/stars/LazyVim/LazyVim?style=for-the-badge&logo=starship&color=c69ff5&logoColor=D9E0EE&labelColor=302D41" />
+    <a href="https://github.com/LazyVimx/LazyVimx/stargazers">
+      <img alt="Stars" src="https://img.shields.io/github/stars/LazyVimx/LazyVimx?style=for-the-badge&logo=starship&color=c69ff5&logoColor=D9E0EE&labelColor=302D41" />
     </a>
-    <a href="https://github.com/LazyVim/LazyVim/issues">
-      <img alt="Issues" src="https://img.shields.io/github/issues/LazyVim/LazyVim?style=for-the-badge&logo=bilibili&color=F5E0DC&logoColor=D9E0EE&labelColor=302D41" />
+    <a href="https://github.com/LazyVimx/LazyVimx/issues">
+      <img alt="Issues" src="https://img.shields.io/github/issues/LazyVimx/LazyVimx?style=for-the-badge&logo=bilibili&color=F5E0DC&logoColor=D9E0EE&labelColor=302D41" />
     </a>
-    <a href="https://github.com/LazyVim/LazyVim">
-      <img alt="Repo Size" src="https://img.shields.io/github/repo-size/LazyVim/LazyVim?color=%23DDB6F2&label=SIZE&logo=codesandbox&style=for-the-badge&logoColor=D9E0EE&labelColor=302D41" />
+    <a href="https://github.com/LazyVimx/LazyVimx">
+      <img alt="Repo Size" src="https://img.shields.io/github/repo-size/LazyVimx/LazyVimx?color=%23DDB6F2&label=SIZE&logo=codesandbox&style=for-the-badge&logoColor=D9E0EE&labelColor=302D41" />
     </a>
     <a href="https://twitter.com/intent/follow?screen_name=folke">
       <img alt="follow on Twitter" src="https://img.shields.io/twitter/follow/folke?style=for-the-badge&logo=twitter&color=8aadf3&logoColor=D9E0EE&labelColor=302D41" />
     </a>
 </div>
 
-LazyVimは、設定の拡張と変更を容易にするために[💤 lazy.nvim](https://github.com/folke/lazy.nvim)によって提供されるNeovimセットアップです。
-LazyVimは、ゼロから始めるか、あらかじめ作成されたディストリビューションを使用するかの選択を迫ることなく、
+LazyVimxは、設定の拡張と変更を容易にするために[💤 lazy.nvim](https://github.com/folke/lazy.nvim)によって提供されるNeovimセットアップです。
+LazyVimxは、ゼロから始めるか、あらかじめ作成されたディストリビューションを使用するかの選択を迫ることなく、
 必要に応じて設定を調整する柔軟性と、事前に設定されたセットアップの利便性を両方叶える最高の世界を提供します。
 
 ![image](https://user-images.githubusercontent.com/292349/211285846-0b7bb3bf-0462-4029-b64c-4ee1d037fc1c.png)
@@ -68,7 +68,7 @@ LazyVimは、ゼロから始めるか、あらかじめ作成されたディス�
 ```sh
 docker run -w /root -it --rm alpine:edge sh -uelic '
   apk add git lazygit neovim ripgrep alpine-sdk --update
-  git clone https://github.com/LazyVim/starter ~/.config/nvim
+  git clone https://github.com/LazyVimx/starter ~/.config/nvim
   cd ~/.config/nvim
   nvim
 '
@@ -76,7 +76,7 @@ docker run -w /root -it --rm alpine:edge sh -uelic '
 
 </details>
 
-<details><summary><a href="https://github.com/LazyVim/starter">LazyVim Starter</a>をインストール</summary>
+<details><summary><a href="https://github.com/LazyVimx/starter">LazyVimx Starter</a>をインストール</summary>
 
 - 既存のNeovimファイルのバックアップを作成します。
 
@@ -88,7 +88,7 @@ docker run -w /root -it --rm alpine:edge sh -uelic '
 - スターターをcloneします。
 
   ```sh
-  git clone https://github.com/LazyVim/starter ~/.config/nvim
+  git clone https://github.com/LazyVimx/starter ~/.config/nvim
   ```
 
 - 後ほど自分のリポジトリに加えられるように、`.git`フォルダを削除します。
@@ -102,7 +102,7 @@ docker run -w /root -it --rm alpine:edge sh -uelic '
   nvim
   ```
 
-  **LazyVim**をカスタマイズするために、ファイルのコメントを参照してください。
+  **LazyVimx**をカスタマイズするために、ファイルのコメントを参照してください。
 
 </details>
 
@@ -116,7 +116,7 @@ docker run -w /root -it --rm alpine:edge sh -uelic '
 
 config配下にあるファイルは適切なタイミングで自動的にロードされる為、
 手動でそれらのファイルをrequireする必要はありません。
-LazyVimには、自分で設定したものより先にロードされるデフォルトの設定ファイルが付属しています。詳しくは[こちら](https://github.com/LazyVim/LazyVim/tree/main/lua/lazyvim/config)。
+LazyVimxには、自分で設定したものより先にロードされるデフォルトの設定ファイルが付属しています。詳しくは[こちら](https://github.com/LazyVimx/LazyVimx/tree/main/lua/lazyvim/config)。
 カスタムプラグインをlua/plugins/の下に追加することができます。lua/plugins/配下の全てのファイルは[lazy.nvim](https://github.com/folke/lazy.nvim)によって自動的にロードされます。
 
 <pre>

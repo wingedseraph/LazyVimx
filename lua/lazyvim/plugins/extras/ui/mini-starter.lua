@@ -29,11 +29,11 @@ return {
         evaluate_single = true,
         header = logo,
         items = {
-          new_section("Find file",       LazyVim.pick(),                        "Telescope"),
+          new_section("Find file",       LazyVimx.pick(),                        "Telescope"),
           new_section("New file",        "ene | startinsert",                   "Built-in"),
-          new_section("Recent files",    LazyVim.pick("oldfiles"),              "Telescope"),
-          new_section("Find text",       LazyVim.pick("live_grep"),             "Telescope"),
-          new_section("Config",          LazyVim.pick.config_files(),           "Config"),
+          new_section("Recent files",    LazyVimx.pick("oldfiles"),              "Telescope"),
+          new_section("Find text",       LazyVimx.pick("live_grep"),             "Telescope"),
+          new_section("Config",          LazyVimx.pick.config_files(),           "Config"),
           new_section("Restore session", [[lua require("persistence").load()]], "Session"),
           new_section("Lazy Extras",     "LazyExtras",                          "Config"),
           new_section("Lazy",            "Lazy",                                "Config"),
@@ -62,7 +62,7 @@ return {
       starter.setup(config)
 
       vim.api.nvim_create_autocmd("User", {
-        pattern = "LazyVimStarted",
+        pattern = "LazyVimxStarted",
         callback = function(ev)
           local stats = require("lazy").stats()
           local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)

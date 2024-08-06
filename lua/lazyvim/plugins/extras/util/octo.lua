@@ -39,12 +39,12 @@ return {
     "pwntester/octo.nvim",
     opts = function(_, opts)
       vim.treesitter.language.register("markdown", "octo")
-      if LazyVim.has("telescope.nvim") then
+      if LazyVimx.has("telescope.nvim") then
         opts.picker = "telescope"
-      elseif LazyVim.has("fzf-lua") then
+      elseif LazyVimx.has("fzf-lua") then
         opts.picker = "fzf-lua"
       else
-        LazyVim.error("`octo.nvim` requires `telescope.nvim` or `fzf-lua`")
+        LazyVimx.error("`octo.nvim` requires `telescope.nvim` or `fzf-lua`")
       end
 
       -- Keep some empty windows in sessions

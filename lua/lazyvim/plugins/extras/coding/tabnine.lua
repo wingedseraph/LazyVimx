@@ -6,7 +6,7 @@ return {
       {
         "tzachar/cmp-tabnine",
         build = {
-          LazyVim.is_win() and "pwsh -noni .\\install.ps1" or "./install.sh",
+          LazyVimx.is_win() and "pwsh -noni .\\install.ps1" or "./install.sh",
           ":CmpTabnineHub",
         },
         dependencies = "hrsh7th/nvim-cmp",
@@ -28,7 +28,7 @@ return {
         priority = 100,
       })
 
-      opts.formatting.format = LazyVim.inject.args(opts.formatting.format, function(entry, item)
+      opts.formatting.format = LazyVimx.inject.args(opts.formatting.format, function(entry, item)
         -- Hide percentage in the menu
         if entry.source.name == "cmp_tabnine" then
           item.menu = ""
@@ -42,8 +42,8 @@ return {
     optional = true,
     event = "VeryLazy",
     opts = function(_, opts)
-      local icon = LazyVim.config.icons.kinds.TabNine
-      table.insert(opts.sections.lualine_x, 2, LazyVim.lualine.cmp_source("cmp_tabnine", icon))
+      local icon = LazyVimx.config.icons.kinds.TabNine
+      table.insert(opts.sections.lualine_x, 2, LazyVimx.lualine.cmp_source("cmp_tabnine", icon))
     end,
   },
 }

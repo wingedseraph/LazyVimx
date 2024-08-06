@@ -1,6 +1,6 @@
 return {
   recommended = function()
-    return LazyVim.extras.wants({
+    return LazyVimx.extras.wants({
       ft = "rust",
       root = { "Cargo.toml", "rust-project.json" },
     })
@@ -81,7 +81,7 @@ return {
     config = function(_, opts)
       vim.g.rustaceanvim = vim.tbl_deep_extend("keep", vim.g.rustaceanvim or {}, opts or {})
       if vim.fn.executable("rust-analyzer") == 0 then
-        LazyVim.error(
+        LazyVimx.error(
           "**rust-analyzer** not found in PATH, please install it.\nhttps://rust-analyzer.github.io/",
           { title = "rustaceanvim" }
         )

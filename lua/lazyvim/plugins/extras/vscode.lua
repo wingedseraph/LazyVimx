@@ -18,7 +18,7 @@ local enabled = {
   "ts-comments.nvim",
   "vim-repeat",
   "yanky.nvim",
-  "LazyVim",
+  "LazyVimx",
 }
 
 local Config = require("lazy.core.config")
@@ -30,7 +30,7 @@ end
 
 -- Add some vscode specific keymaps
 vim.api.nvim_create_autocmd("User", {
-  pattern = "LazyVimKeymapsDefaults",
+  pattern = "LazyVimxKeymapsDefaults",
   callback = function()
     vim.keymap.set("n", "<leader><space>", "<cmd>Find<cr>")
     vim.keymap.set("n", "<leader>/", [[<cmd>call VSCodeNotify('workbench.action.findInFiles')<cr>]])
@@ -40,7 +40,7 @@ vim.api.nvim_create_autocmd("User", {
 
 return {
   {
-    "LazyVim/LazyVim",
+    "LazyVimx/LazyVimx",
     config = function(_, opts)
       opts = opts or {}
       -- disable the colorscheme

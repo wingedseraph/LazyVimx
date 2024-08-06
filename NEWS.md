@@ -56,7 +56,7 @@
 - `vim-illuminate` move to extras
   Document highlights now use native lsp functionality by default
 
-Since Neovim 0.10 has been released, I've been working on a new version of **LazyVim**
+Since Neovim 0.10 has been released, I've been working on a new version of **LazyVimx**
 that is fully compatible with all the latest Neovim features.
 
 Additionally, some core plugins have been moved to extras.
@@ -68,7 +68,7 @@ Additionally, some core plugins have been moved to extras.
   Older versions of Neovim will use the new `mini-comment` extra.
   `nvim-ts-context-commentstring` has been integrated in the native comments.
 
-- `inlay hints` have been in **LazyVim** for a while, but are now
+- `inlay hints` have been in **LazyVimx** for a while, but are now
   enabled by default. To disable them:
 
   ```lua
@@ -135,17 +135,17 @@ Additionally, some core plugins have been moved to extras.
 - `nvim-navic` has been removed. If you want to keep using `nvim-navic`,
   you can enable the **editor.navic** extra
 
-- New `:LazyExtras` command for managing **LazyVim** extras
+- New `:LazyExtras` command for managing **LazyVimx** extras
 
 - Improved **formatting**:
 
-  - **LazyVim** can now work with multiple formatters. Types:
+  - **LazyVimx** can now work with multiple formatters. Types:
 
     - **primary**: only one primary formatter can be active at a time.
       _(conform, none-ls, LSP)_
     - **secondary**: multiple secondary formatters can be active _(eslint, ...)_
 
-  - **LazyVim** automatically selects the primary formatter based on the
+  - **LazyVimx** automatically selects the primary formatter based on the
     current available sources and priorities.
 
   - New `:LazyFormat` command for formatting the current selection or buffer
@@ -175,7 +175,7 @@ Additionally, some core plugins have been moved to extras.
   - Configurable with `vim.g.root_spec`
 
     ```lua
-    -- LazyVim root dir detection
+    -- LazyVimx root dir detection
     -- Each entry can be:
     -- * the name of a detector function like `lsp` or `cwd`
     -- * a pattern or array of patterns like `.git` or `lua`.

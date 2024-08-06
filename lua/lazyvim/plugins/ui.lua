@@ -1,6 +1,6 @@
 return {
 
-  -- This is what powers LazyVim's fancy-looking
+  -- This is what powers LazyVimx's fancy-looking
   -- tabs, which include filetype icons and close buttons.
   {
     "akinsho/bufferline.nvim",
@@ -21,13 +21,13 @@ return {
     opts = {
       options = {
         -- stylua: ignore
-        close_command = function(n) LazyVim.ui.bufremove(n) end,
+        close_command = function(n) LazyVimx.ui.bufremove(n) end,
         -- stylua: ignore
-        right_mouse_command = function(n) LazyVim.ui.bufremove(n) end,
+        right_mouse_command = function(n) LazyVimx.ui.bufremove(n) end,
         diagnostics = "nvim_lsp",
         always_show_bufferline = false,
         diagnostics_indicator = function(_, _, diag)
-          local icons = LazyVim.config.icons.diagnostics
+          local icons = LazyVimx.config.icons.diagnostics
           local ret = (diag.error and icons.Error .. diag.error .. " " or "")
             .. (diag.warning and icons.Warn .. diag.warning or "")
           return vim.trim(ret)
@@ -42,7 +42,7 @@ return {
         },
         ---@param opts bufferline.IconFetcherOpts
         get_element_icon = function(opts)
-          return LazyVim.config.icons.ft[opts.filetype]
+          return LazyVimx.config.icons.ft[opts.filetype]
         end,
       },
     },
@@ -78,7 +78,7 @@ return {
       local lualine_require = require("lualine_require")
       lualine_require.require = require
 
-      local icons = LazyVim.config.icons
+      local icons = LazyVimx.config.icons
 
       vim.o.laststatus = vim.g.lualine_laststatus
 
@@ -93,7 +93,7 @@ return {
           lualine_b = { "branch" },
 
           lualine_c = {
-            LazyVim.lualine.root_dir(),
+            LazyVimx.lualine.root_dir(),
             {
               "diagnostics",
               symbols = {
@@ -104,32 +104,32 @@ return {
               },
             },
             { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
-            { LazyVim.lualine.pretty_path() },
+            { LazyVimx.lualine.pretty_path() },
           },
           lualine_x = {
             -- stylua: ignore
             {
               function() return require("noice").api.status.command.get() end,
               cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
-              color = function() return LazyVim.ui.fg("Statement") end,
+              color = function() return LazyVimx.ui.fg("Statement") end,
             },
             -- stylua: ignore
             {
               function() return require("noice").api.status.mode.get() end,
               cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
-              color = function() return LazyVim.ui.fg("Constant") end,
+              color = function() return LazyVimx.ui.fg("Constant") end,
             },
             -- stylua: ignore
             {
               function() return "  " .. require("dap").status() end,
               cond = function() return package.loaded["dap"] and require("dap").status() ~= "" end,
-              color = function() return LazyVim.ui.fg("Debug") end,
+              color = function() return LazyVimx.ui.fg("Debug") end,
             },
             -- stylua: ignore
             {
               require("lazy.status").updates,
               cond = require("lazy.status").has_updates,
-              color = function() return LazyVim.ui.fg("Special") end,
+              color = function() return LazyVimx.ui.fg("Special") end,
             },
             {
               "diff",
@@ -165,7 +165,7 @@ return {
 
       -- do not add trouble symbols if aerial is enabled
       -- And allow it to be overriden for some buffer types (see autocmds)
-      if vim.g.trouble_lualine and LazyVim.has("trouble.nvim") then
+      if vim.g.trouble_lualine and LazyVimx.has("trouble.nvim") then
         local trouble = require("trouble")
         local symbols = trouble.statusline({
           mode = "symbols",

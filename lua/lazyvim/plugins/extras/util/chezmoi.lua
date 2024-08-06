@@ -1,7 +1,7 @@
 local pick_chezmoi = function()
-  if LazyVim.pick.picker.name == "telescope" then
+  if LazyVimx.pick.picker.name == "telescope" then
     require("telescope").extensions.chezmoi.find_files()
-  elseif LazyVim.pick.picker.name == "fzf" then
+  elseif LazyVimx.pick.picker.name == "fzf" then
     local fzf_lua = require("fzf-lua")
     local results = require("chezmoi.commands").list()
     local chezmoi = require("chezmoi.commands")

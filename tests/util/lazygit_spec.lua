@@ -1,12 +1,12 @@
 ---@module "luassert"
 
-_G.LazyVim = require("lazyvim.util")
+_G.LazyVimx = require("lazyvim.util")
 
 -- stylua: ignore
 local git_remotes_cases = {
-  ["https://github.com/LazyVim/LazyVim.git"]                             = "https://github.com/LazyVim/LazyVim",
-  ["https://github.com/LazyVim/LazyVim"]                                 = "https://github.com/LazyVim/LazyVim",
-  ["git@github.com:LazyVim/LazyVim"]                                     = "https://github.com/LazyVim/LazyVim",
+  ["https://github.com/LazyVimx/LazyVimx.git"]                             = "https://github.com/LazyVimx/LazyVimx",
+  ["https://github.com/LazyVimx/LazyVimx"]                                 = "https://github.com/LazyVimx/LazyVimx",
+  ["git@github.com:LazyVimx/LazyVimx"]                                     = "https://github.com/LazyVimx/LazyVimx",
   ["git@ssh.dev.azure.com:v3/neovim-org/owner/repo"]                     = "https://dev.azure.com/neovim-org/owner/_git/repo",
   ["https://folkelemaitre@bitbucket.org/samiulazim/neovim.git"]          = "https://bitbucket.org/samiulazim/neovim",
   ["git@bitbucket.org:samiulazim/neovim.git"]                            = "https://bitbucket.org/samiulazim/neovim",
@@ -35,7 +35,7 @@ local git_remotes_cases = {
 describe("util.lazygit", function()
   for remote, expected in pairs(git_remotes_cases) do
     it("should parse git remote " .. remote, function()
-      local url = LazyVim.lazygit.get_url(remote)
+      local url = LazyVimx.lazygit.get_url(remote)
       assert.are.equal(expected, url)
     end)
   end

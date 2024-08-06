@@ -14,7 +14,7 @@ local formatter = vim.g.lazyvim_ruby_formatter or "rubocop"
 
 return {
   recommended = function()
-    return LazyVim.extras.wants({
+    return LazyVimx.extras.wants({
       ft = "ruby",
       root = "Gemfile",
     })

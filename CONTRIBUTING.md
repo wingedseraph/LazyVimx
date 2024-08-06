@@ -1,4 +1,4 @@
-# Contributing to LazyVim
+# Contributing to LazyVimx
 
 ## General Guidelines
 

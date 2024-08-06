@@ -1,6 +1,6 @@
 return {
   recommended = function()
-    return LazyVim.extras.wants({
+    return LazyVimx.extras.wants({
       ft = { "terraform", "hcl" },
       root = ".terraform",
     })
@@ -62,7 +62,7 @@ return {
       {
         "ANGkeith/telescope-terraform-doc.nvim",
         config = function()
-          LazyVim.on_load("telescope.nvim", function()
+          LazyVimx.on_load("telescope.nvim", function()
             require("telescope").load_extension("terraform_doc")
           end)
         end,
@@ -70,7 +70,7 @@ return {
       {
         "cappyzawa/telescope-terraform.nvim",
         config = function()
-          LazyVim.on_load("telescope.nvim", function()
+          LazyVimx.on_load("telescope.nvim", function()
             require("telescope").load_extension("terraform")
           end)
         end,

@@ -21,7 +21,7 @@ return {
       end,
     })
 
-    LazyVim.toggle.map("<leader>ua", {
+    LazyVimx.toggle.map("<leader>ua", {
       name = "Mini Animate",
       get = function()
         return not vim.g.minianimate_disable

@@ -11,28 +11,28 @@ end
 
 function M.setup()
   vim.schedule(function()
-    if LazyVim.config.news.lazyvim then
-      if not LazyVim.config.json.data.news["NEWS.md"] then
+    if LazyVimx.config.news.lazyvim then
+      if not LazyVimx.config.json.data.news["NEWS.md"] then
         M.welcome()
       end
       M.lazyvim(true)
     end
-    if LazyVim.config.news.neovim then
+    if LazyVimx.config.news.neovim then
       M.neovim(true)
     end
   end)
 end
 
 function M.welcome()
-  LazyVim.info("Welcome to LazyVim!")
+  LazyVimx.info("Welcome to LazyVimx!")
 end
 
 function M.changelog()
-  M.open("CHANGELOG.md", { plugin = "LazyVim" })
+  M.open("CHANGELOG.md", { plugin = "LazyVimx" })
 end
 
 function M.lazyvim(when_changed)
-  M.open("NEWS.md", { plugin = "LazyVim", when_changed = when_changed })
+  M.open("NEWS.md", { plugin = "LazyVimx", when_changed = when_changed })
 end
 
 function M.neovim(when_changed)
@@ -47,7 +47,7 @@ function M.open(file, opts)
   if opts.plugin then
     local plugin = require("lazy.core.config").plugins[opts.plugin] --[[@as LazyPlugin?]]
     if not plugin then
-      return LazyVim.error("plugin not found: " .. opts.plugin)
+      return LazyVimx.error("plugin not found: " .. opts.plugin)
     end
     file = plugin.dir .. "/" .. file
   elseif opts.rtp then
@@ -55,17 +55,17 @@ function M.open(file, opts)
   end
 
   if not file then
-    return LazyVim.error("File not found")
+    return LazyVimx.error("File not found")
   end
 
   if opts.when_changed then
-    local is_new = not LazyVim.config.json.data.news[ref]
+    local is_new = not LazyVimx.config.json.data.news[ref]
     local hash = M.hash(file)
-    if hash == LazyVim.config.json.data.news[ref] then
+    if hash == LazyVimx.config.json.data.news[ref] then
       return
     end
-    LazyVim.config.json.data.news[ref] = hash
-    LazyVim.json.save()
+    LazyVimx.config.json.data.news[ref] = hash
+    LazyVimx.json.save()
     -- don't open if file has never been opened
     if is_new then
       return
