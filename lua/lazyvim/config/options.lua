@@ -1,6 +1,7 @@
 -- This file is automatically loaded by plugins.core
 vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
+vim.g.maplocalleader = " "
+print("opti")
 
 -- LazyVim auto format
 vim.g.autoformat = true
@@ -51,7 +52,6 @@ vim.g.bigfile_size = 1024 * 1024 * 1.5 -- 1.5 MB
 vim.g.trouble_lualine = true
 
 local opt = vim.opt
-print("opti")
 opt.autowrite = true -- Enable auto write
 -- only set clipboard if not in ssh, to make sure the OSC 52
 -- integration works automatically. Requires Neovim >= 0.10.0
