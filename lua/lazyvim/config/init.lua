@@ -5,7 +5,7 @@ local M = {}
 
 M.version = "12.38.2" -- x-release-please-version
 LazyVim.config = M
-
+print("dddd")
 ---@class LazyVimOptions
 local defaults = {
   -- colorscheme can be a string like `catppuccin` or a function that will load the colorscheme
