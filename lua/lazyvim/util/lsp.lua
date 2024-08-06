@@ -262,7 +262,7 @@ function M.words.setup(opts)
   if not opts.enabled then
     return
   end
-  M.words.enabled = true
+  M.words.enabled = false
   local handler = vim.lsp.handlers["textDocument/documentHighlight"]
   vim.lsp.handlers["textDocument/documentHighlight"] = function(err, result, ctx, config)
     if not vim.api.nvim_buf_is_loaded(ctx.bufnr) then
