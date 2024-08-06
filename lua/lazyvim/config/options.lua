@@ -61,16 +61,35 @@ opt.conceallevel = 2 -- Hide * markup for bold and italic, but not markers with 
 opt.confirm = true -- Confirm to save changes before exiting modified buffer
 opt.cursorline = true -- Enable highlighting of the current line
 opt.expandtab = true -- Use spaces instead of tabs
-opt.fillchars = {
-  foldopen = "",
-  foldclose = "",
-  fold = " ",
-  foldsep = " ",
-  diff = "╱",
-  eob = " ",
-}
-opt.foldlevel = 1
-opt.formatexpr = "v:lua.require'lazyvim.util'.format.formatexpr()"
+-- Folds ======================================================================
+vim.o.foldmethod = "indent" -- Set 'indent' folding method
+-- vim.o.foldmethod = "expr"
+-- vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+vim.o.foldlevel = 0 -- Display all folds
+vim.o.foldnestmax = 10 -- Create folds only for some number of nested levels
+vim.g.markdown_folding = 1 -- Use folding by heading in markdown files
+-- vim.o.foldtext = "" -- Use underlying text with its highlighting
+function _G.foldtext()
+  local fs, fe = vim.v.foldstart, vim.v.foldend
+  local start_line = vim.fn.getline(fs):gsub("\t", ("\t"):rep(vim.opt.ts:get()))
+  local end_line = vim.trim(vim.fn.getline(fe))
+  local spaces = (" "):rep(vim.o.columns - start_line:len() - end_line:len() - 7)
+
+  return start_line .. "  " .. end_line .. spaces
+end
+
+vim.opt.foldtext = "v:lua.foldtext()"
+vim.o.fillchars = table.concat({
+  "fold: ",
+  "eob: ",
+  "horiz:═",
+  "horizdown:╦",
+  "horizup:╩",
+  "vert:║",
+  "verthoriz:╬",
+  "vertleft:╣",
+  "vertright:╠",
+}, ",")
 opt.formatoptions = "jcroqlnt" -- tcqj
 opt.grepformat = "%f:%l:%c:%m"
 opt.grepprg = "rg --vimgrep"
