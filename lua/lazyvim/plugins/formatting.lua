@@ -74,9 +74,9 @@ return {
           lua = { "stylua" },
           fish = { "fish_indent" },
           sh = { "shfmt" },
-          javascript = { "prettierd" },
-          html = { "prettierd" },
-          css = { "prettierd" },
+          javascript = { "prettier" },
+          html = { "prettier" },
+          css = { "prettier" },
         },
         -- The options you set here will be merged with the builtin formatters.
         -- You can also define any custom formatters here.
