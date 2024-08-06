@@ -29,10 +29,14 @@ return {
       return {
 
         auto_brackets = {}, -- configure any filetype to auto add brackets
-        completion = {
-          completeopt = "menu,menuone,noinsert" .. (auto_select and "" or ",noselect"),
-        },
+        -- completion = {
+        --   completeopt = "menu,menuone,noinsert" .. (auto_select and "" or ",noselect"),
+        -- },
         preselect = auto_select and cmp.PreselectMode.Item or cmp.PreselectMode.None,
+        performance = {
+          -- throttle = 400,
+          max_view_entries = 8,
+        },
         mapping = cmp.mapping.preset.insert({
           ["<Tab>"] = cmp.mapping.select_next_item(),
           ["<S-Tab>"] = cmp.mapping.select_prev_item(),
