@@ -77,6 +77,7 @@ return {
         function()
           vim.cmd("Yazi")
         end,
+        { noremap = true, silent = true },
         desc = "Open the file manager",
       },
     },
