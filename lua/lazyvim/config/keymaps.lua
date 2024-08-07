@@ -161,6 +161,7 @@ map("n", "<leader>L", function() LazyVimx.news.changelog() end, { desc = "LazyVi
 local lazyterm = function() LazyVimx.terminal(nil, { cwd = LazyVimx.root() }) end
 map("n", "<leader>ft", lazyterm, { desc = "Terminal (Root Dir)" })
 map("n", "<m-i>", function() LazyVimx.terminal() end, { desc = "Terminal (cwd)" })
+map("t", "<m-i>", function() LazyVimx.terminal() end, { desc = "Terminal (cwd)" })
 map("n", "<c-/>", lazyterm, { desc = "Terminal (Root Dir)" })
 map("n", "<c-_>", lazyterm, { desc = "which_key_ignore" })
 
