@@ -156,6 +156,7 @@ return {
           height = 1,
           row = 0.5,
           col = 0.5,
+          border = "none",
           preview = {
             scrollchars = { "┃", "" },
           },
