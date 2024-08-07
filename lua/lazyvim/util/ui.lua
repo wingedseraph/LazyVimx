@@ -101,7 +101,8 @@ function M.statuscolumn()
 
   local show_open_folds = vim.g.lazyvim_statuscolumn and vim.g.lazyvim_statuscolumn.folds_open
   local use_githl = vim.g.lazyvim_statuscolumn and vim.g.lazyvim_statuscolumn.folds_githl
-  if show_signs  then
+  local wanna = false
+  if show_signs and wanna then
     local signs = M.get_signs(buf, vim.v.lnum)
 
     ---@type Sign?,Sign?,Sign?
