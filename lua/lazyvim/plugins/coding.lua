@@ -57,8 +57,15 @@ return {
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
           { name = "path" },
-        }, {
-          { name = "buffer" },
+          {
+            name = "buffer",
+            option = {
+              indexing_interval = 1000,
+              get_bufnrs = function()
+                return vim.api.nvim_list_bufs()
+              end,
+            },
+          },
         }),
         formatting = {
           format = function(entry, item)
