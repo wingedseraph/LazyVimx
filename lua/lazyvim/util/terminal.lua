@@ -51,7 +51,7 @@ end
 function M.open(cmd, opts)
   opts = vim.tbl_deep_extend("force", {
     ft = "lazyterm",
-    size = { width = 1, height = 1 },
+    size = { width = 1, height = 0.9 },
     backdrop = LazyVimx.has("edgy.nvim") and not cmd and 100 or nil,
   }, opts or {}, { persistent = true }) --[[@as LazyTermOpts]]
 
